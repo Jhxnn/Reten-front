@@ -144,20 +144,26 @@ function UnverifiedSuggestions({
   onRetry: () => void
   retrying: boolean
 }) {
+  // A playlist pode ter sido gerada antes de o Spotify ser configurado; se agora está disponível, dá para verificar.
+  const spotifyNowAvailable = playlist.spotify.publishingAvailable
+  const failed = playlist.verificationStatus === 'FAILED'
+  const message = failed
+    ? 'Não conseguimos confirmar estas músicas no Spotify agora. Elas ainda não são faixas verificadas.'
+    : spotifyNowAvailable
+      ? 'Esta playlist foi gerada antes de o Spotify estar configurado. Verifique as músicas agora: só as encontradas no catálogo entram na playlist.'
+      : 'A integração com o Spotify não está configurada neste ambiente, então estas músicas não foram confirmadas no catálogo.'
+
   return (
     <section className={styles.section} aria-labelledby="sugestoes">
       <div className={styles.suggestionsHead}>
         <h2 id="sugestoes" className={styles.sectionTitle}>
           Sugestões da IA
         </h2>
-        <p className={styles.unverified}>
-          {playlist.verificationStatus === 'FAILED'
-            ? 'Não conseguimos confirmar estas músicas no Spotify agora. Elas ainda não são faixas verificadas.'
-            : 'A integração com o Spotify não está configurada neste ambiente, então estas músicas não foram confirmadas no catálogo.'}
-        </p>
-        {playlist.verificationStatus === 'FAILED' && (
+        <p className={styles.unverified}>{message}</p>
+        {(failed || spotifyNowAvailable) && (
           <Button variant="quiet" onClick={onRetry} disabled={retrying}>
-            <RefreshCw size={15} strokeWidth={1.75} aria-hidden="true" /> {retrying ? 'Verificando…' : 'Verificar no Spotify de novo'}
+            <RefreshCw size={15} strokeWidth={1.75} aria-hidden="true" />{' '}
+            {retrying ? 'Verificando…' : failed ? 'Verificar no Spotify de novo' : 'Verificar no Spotify'}
           </Button>
         )}
       </div>

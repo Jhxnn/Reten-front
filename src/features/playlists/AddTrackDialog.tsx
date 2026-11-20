@@ -95,10 +95,13 @@ export function AddTrackDialog({ playlistId, open, onClose }: AddTrackDialogProp
                       {track.artists.join(', ')}
                       {track.durationMs ? ` — ${formatDuration(track.durationMs)}` : ''}
                     </p>
+                    {/* O álbum distingue versões da mesma música (estúdio, coletânea, remaster). */}
+                    {track.album && <p className={styles.album}>{track.album}</p>}
                   </div>
                   <button
                     type="button"
                     className={styles.add}
+                    aria-label={done ? `${track.name} adicionada` : `Adicionar ${track.name}, de ${track.artists.join(', ')}`}
                     disabled={done || add.isPending}
                     onClick={() =>
                       add.mutate(track.spotifyTrackId, {
