@@ -1,0 +1,32 @@
+.panel {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--forest);
+  font-weight: 650;
+  text-underline-offset: 0.2em;
+}
+
+.note {
+  max-width: 52ch;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.connect {
+  color: var(--forest);
+  font-weight: 700;
+}
