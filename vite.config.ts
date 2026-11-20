@@ -3,7 +3,8 @@ import { defineConfig, loadEnv } from 'vite'
 
 // O frontend fala com o backend sempre pela mesma origem (/api).
 // Em desenvolvimento, o Vite encaminha as chamadas para o Spring Boot — assim o cookie de
-// sessão é first-party e não precisamos de CORS.
+// sessão é first-party e não precisamos de CORS. O host é 127.0.0.1 (não localhost) porque
+// a Spotify só aceita redirect por IP de loopback, e o cookie precisa estar no mesmo host.
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const apiTarget = env.RETEN_API_URL ?? 'http://localhost:8090'
@@ -11,6 +12,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
+      host: '127.0.0.1',
       port: 5173,
       strictPort: true,
       proxy: {

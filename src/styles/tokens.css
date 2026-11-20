@@ -12,6 +12,7 @@
   --forest: #1f5c4a;       /* verde-floresta: acento da marca */
   --mint: #d3e6da;         /* menta: apoio e acentos sobre fundo escuro */
   --sage: #8fb5a2;         /* intermediário entre floresta e menta */
+  --danger: #b0412e;       /* erros: vermelho terroso, legível sobre o branco */
 
   /* Cor — papéis */
   --text: var(--ink);

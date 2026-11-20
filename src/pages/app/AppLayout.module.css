@@ -1,0 +1,36 @@
+.shell {
+  min-height: 100dvh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: var(--space-5) var(--gutter);
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.name {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.main {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: var(--space-7) var(--gutter) var(--space-9);
+}
+
+@media (max-width: 30rem) {
+  .name {
+    display: none;
+  }
+}

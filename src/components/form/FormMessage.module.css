@@ -1,0 +1,22 @@
+.message {
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid;
+  border-radius: 0 var(--radius-hairline) var(--radius-hairline) 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.error {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+}
+
+.success {
+  border-color: var(--forest);
+  background: var(--surface-alt);
+}
+
+.info {
+  border-color: var(--sage);
+  background: var(--surface-alt);
+}
