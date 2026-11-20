@@ -4,11 +4,13 @@ import styles from './Logo.module.css'
 type LogoProps = {
   /** Cor da marca: "light" sobre fundos escuros, "dark" segue a cor do texto (acompanha o tema). */
   tone?: 'light' | 'dark'
+  /** Em telas estreitas mostra só o ícone (o nome continua no aria-label). */
+  compact?: boolean
 }
 
-export function Logo({ tone = 'light' }: LogoProps) {
+export function Logo({ tone = 'light', compact = false }: LogoProps) {
   return (
-    <Link to="/" className={`${styles.logo} ${styles[tone]}`} aria-label="Reten, página inicial">
+    <Link to="/" className={`${styles.logo} ${styles[tone]} ${compact ? styles.compact : ''}`} aria-label="Reten, página inicial">
       <LogoMark />
       <span className={styles.wordmark}>Reten</span>
     </Link>
