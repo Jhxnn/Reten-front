@@ -1,6 +1,6 @@
 import styles from './TypographicCover.module.css'
 
-export type CoverTone = 'umber' | 'olive' | 'ink' | 'vellum'
+export type CoverTone = 'forest' | 'ink' | 'mint' | 'sage'
 
 type TypographicCoverProps = {
   title: string
@@ -14,7 +14,7 @@ type TypographicCoverProps = {
  * Usada em exemplos editoriais e como capa substituta quando um livro não tem imagem.
  * Os sulcos no rodapé são o único ornamento: a obra vira disco.
  */
-export function TypographicCover({ title, author, tone = 'umber', className }: TypographicCoverProps) {
+export function TypographicCover({ title, author, tone = 'forest', className }: TypographicCoverProps) {
   return (
     <div className={`${styles.cover} ${styles[tone]} ${className ?? ''}`} role="img" aria-label={`Capa de ${title}, de ${author}`}>
       <div className={styles.frame}>

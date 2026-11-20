@@ -23,7 +23,7 @@ export function SiteFooter() {
 
         <div className={styles.colophon}>
           <p className={styles.colophonTitle}>Colofão</p>
-          <p>Composto em Bodoni Moda e Schibsted Grotesk, sobre papel creme e madeira escura.</p>
+          <p>Composto em Fraunces e Manrope.</p>
           <p>O Reten não é afiliado ao Spotify. Spotify é uma marca registrada da Spotify AB.</p>
         </div>
       </div>

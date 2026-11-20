@@ -20,10 +20,10 @@
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 96;
   font-size: clamp(3.4rem, 6vw, 5rem);
-  font-weight: 420;
+  font-weight: 300;
   letter-spacing: 0.04em;
   line-height: 0.9;
-  color: var(--olive);
+  color: var(--forest);
 }
 
 .title {
@@ -34,7 +34,7 @@
 
 .text {
   max-width: 34ch;
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
 }
 
 @media (max-width: 52rem) {

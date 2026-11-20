@@ -1,4 +1,7 @@
 .shelf {
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
   --shelf-height: clamp(7.5rem, min(18vw, 24svh), 14rem);
   width: 100%;
   overflow: hidden;
@@ -35,37 +38,25 @@
   }
 }
 
-.ink {
-  background: var(--ink);
-  color: var(--vellum);
+.forest {
+  background: var(--forest);
+  color: var(--mint);
 }
-.olive {
-  background: var(--olive);
-  color: var(--paper);
+.moss {
+  background: color-mix(in srgb, var(--forest) 70%, var(--sage));
+  color: var(--surface);
 }
-.vellum {
-  background: var(--vellum);
-  color: var(--umber);
-}
-.paper {
-  background: var(--paper-shade);
-  color: var(--umber);
-}
-.gilt {
-  background: var(--gilt);
+.mint {
+  background: var(--mint);
   color: var(--ink);
 }
-.deep {
-  background: var(--umber-deep);
-  color: var(--gilt);
+.sage {
+  background: var(--sage);
+  color: var(--ink);
 }
-
-/* Dois fios dourados, como o acabamento de lombadas encadernadas */
-.bands {
-  position: absolute;
-  inset: 10% 18% auto;
-  height: 5px;
-  border-block: 1px solid color-mix(in srgb, var(--gilt) 85%, transparent);
+.surface {
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .title {
@@ -76,20 +67,19 @@
   justify-content: flex-start;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 14;
+  font-family: var(--font-text);
   font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .plank {
-  height: 0.85rem;
-  background: var(--umber-deep);
+  height: 0.4rem;
+  background: var(--ink-deep);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--gilt) 35%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--mint) 35%, transparent),
     0 12px 24px -10px color-mix(in srgb, black 60%, transparent);
 }

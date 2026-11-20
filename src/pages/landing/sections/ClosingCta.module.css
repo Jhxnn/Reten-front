@@ -15,7 +15,7 @@
   max-width: 14ch;
   font-size: clamp(2.4rem, 6.4vw, 5rem);
   font-variation-settings: 'opsz' 96;
-  font-weight: 460;
+  font-weight: 320;
   line-height: 0.98;
   letter-spacing: -0.02em;
 }
@@ -28,7 +28,7 @@
 
 .text {
   max-width: 32ch;
-  color: color-mix(in srgb, var(--paper) 70%, var(--ink));
+  color: color-mix(in srgb, var(--surface) 70%, var(--ink));
 }
 
 @media (max-width: 52rem) {

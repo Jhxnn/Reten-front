@@ -1,30 +1,30 @@
 /*
- * Tokens de design do Reten.
- * A paleta nasce de dois materiais: papel envelhecido e madeira escura de estante.
+ * Tokens de design do Reten — direção "verde profundo".
+ * Branco limpo para a leitura, verde quase preto para a noite, verde-floresta como voz da marca
+ * e menta como respiro.
  */
 :root {
   /* Cor — base */
-  --ink: #171717;      /* preto carvão: noite, vinil */
-  --umber: #382a23;    /* marrom profundo: estante, couro */
-  --paper: #f3ebdd;    /* creme: página */
-  --vellum: #d8c8ad;   /* bege envelhecido: papel antigo */
-  --olive: #66715a;    /* verde oliva: tecido de capa */
-  --gilt: #b69a69;     /* dourado envelhecido: só para detalhes */
+  --surface: #fafaf7;      /* branco: página */
+  --surface-alt: #eef4f0;  /* branco tingido de menta: seções alternadas */
+  --ink: #10241e;          /* verde quase preto: texto e seções escuras */
+  --ink-deep: #0a1814;     /* um tom abaixo do ink: prateleira, sombras */
+  --forest: #1f5c4a;       /* verde-floresta: acento da marca */
+  --mint: #d3e6da;         /* menta: apoio e acentos sobre fundo escuro */
+  --sage: #8fb5a2;         /* intermediário entre floresta e menta */
 
-  /* Cor — derivadas (sempre a partir da base) */
-  --paper-shade: #ebe0cd;
-  --umber-deep: #2a1f1a;
-  --text-on-paper: var(--ink);
-  --muted-on-paper: color-mix(in srgb, var(--umber) 78%, var(--paper));
-  --text-on-dark: var(--paper);
-  --muted-on-dark: color-mix(in srgb, var(--paper) 68%, var(--umber));
-  --rule-on-paper: color-mix(in srgb, var(--umber) 22%, var(--paper));
-  --rule-on-dark: color-mix(in srgb, var(--paper) 18%, var(--umber));
-  --focus: var(--gilt);
+  /* Cor — papéis */
+  --text: var(--ink);
+  --text-muted: color-mix(in srgb, var(--ink) 66%, var(--surface));
+  --text-on-dark: var(--surface);
+  --text-muted-on-dark: color-mix(in srgb, var(--surface) 66%, var(--ink));
+  --line: color-mix(in srgb, var(--ink) 14%, var(--surface));
+  --line-on-dark: color-mix(in srgb, var(--surface) 16%, var(--ink));
+  --focus: var(--forest);
 
   /* Tipografia */
-  --font-display: 'Bodoni Moda Variable', 'Bodoni 72', Didot, Georgia, serif;
-  --font-text: 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-text: 'Manrope Variable', 'Segoe UI', system-ui, sans-serif;
 
   /* Escala modular (razão 1.333 — quarta justa), base 17px */
   --step--1: 0.8125rem;  /* 13 */
@@ -33,7 +33,7 @@
   --step-2: 1.8889rem;   /* ~30 */
   --step-3: 2.5185rem;   /* ~40 */
   --step-4: clamp(2.6rem, 5.2vw, 3.358rem);
-  --step-display: clamp(3.1rem, 9.4vw, 7.6rem);
+  --step-display: clamp(3.1rem, 9vw, 7.2rem);
 
   /* Espaço */
   --space-1: 0.25rem;
@@ -51,8 +51,8 @@
   --page-max: 78rem;
   --gutter: clamp(1rem, 4vw, 3rem);
 
-  /* Forma: quase reta — papel é cortado, não arredondado */
-  --radius-hairline: 2px;
+  /* Forma */
+  --radius-hairline: 4px;
 
   /* Movimento */
   --ease-settle: cubic-bezier(0.2, 0.9, 0.25, 1);

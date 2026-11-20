@@ -35,5 +35,6 @@ src/
 
 ## Identidade visual
 
-- Cores: tinta `#171717`, sépia `#382A23`, papel `#F3EBDD`, pergaminho `#D8C8AD`, oliva `#66715A`, dourado `#B69A69`.
-- Tipografia: Bodoni Moda (títulos) e Schibsted Grotesk (texto), servidas localmente via Fontsource.
+- Cores: branco `#FAFAF7`, verde quase preto `#10241E`, verde-floresta `#1F5C4A`, menta `#D3E6DA`, sálvia `#8FB5A2`.
+- Tipografia: Fraunces em pesos leves (títulos) e Manrope (texto), servidas localmente via Fontsource.
+- Marca: três barras de alturas diferentes — livros na estante e equalizador ao mesmo tempo.

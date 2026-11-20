@@ -27,7 +27,7 @@ export type ListeningMode = {
 export const demoBook = {
   title: 'O Nome do Vento',
   author: 'Patrick Rothfuss',
-  tone: 'umber' as CoverTone,
+  tone: 'forest' as CoverTone,
   atmosphere: ['Fantasia', 'Mistério', 'Melancolia', 'Contemplação', 'Aventura épica'],
 }
 

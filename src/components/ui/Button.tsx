@@ -3,7 +3,7 @@ import { Link, type LinkProps } from 'react-router'
 import styles from './Button.module.css'
 
 type Variant = 'solid' | 'quiet'
-type Surface = 'dark' | 'paper'
+type Surface = 'dark' | 'light'
 
 type CommonProps = {
   variant?: Variant
@@ -18,7 +18,7 @@ function classes(variant: Variant, surface: Surface, extra?: string) {
 
 export function Button({
   variant = 'solid',
-  surface = 'paper',
+  surface = 'light',
   className,
   children,
   ...rest
@@ -32,7 +32,7 @@ export function Button({
 
 export function ButtonLink({
   variant = 'solid',
-  surface = 'paper',
+  surface = 'light',
   className,
   children,
   ...rest

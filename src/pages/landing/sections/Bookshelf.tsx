@@ -5,7 +5,8 @@ import styles from './Bookshelf.module.css'
 // Lombadas suficientes para preencher telas largas; o excesso é cortado pelo overflow.
 const SPINE_COUNT = 84
 const TITLE_EVERY = 5
-const tones = ['ink', 'olive', 'vellum', 'paper', 'gilt', 'deep'] as const
+// O hero é verde quase preto: as lombadas usam os tons mais claros da paleta para contrastar.
+const tones = ['forest', 'moss', 'mint', 'sage', 'surface', 'forest'] as const
 
 /** Pseudo-aleatório determinístico: a estante é sempre a mesma em todo render. */
 function noise(seed: number) {
@@ -24,7 +25,6 @@ type Spine = {
   width: number
   tone: (typeof tones)[number]
   title?: string
-  banded: boolean
 }
 
 const spines: Spine[] = Array.from({ length: SPINE_COUNT }, (_, i) => {
@@ -35,7 +35,6 @@ const spines: Spine[] = Array.from({ length: SPINE_COUNT }, (_, i) => {
     width: titled ? 2.35 : 0.55 + noise(i + 1) * 1.05,
     tone: tones[Math.floor(noise(i + 7) * tones.length)],
     title,
-    banded: noise(i + 31) > 0.55,
   }
 })
 
@@ -53,7 +52,6 @@ export function Bookshelf() {
             className={`${styles.spine} ${styles[spine.tone]}`}
             style={{ '--h': spine.height, '--w': `${spine.width}rem`, '--i': i } as CSSProperties}
           >
-            {spine.banded && <span className={styles.bands} />}
             {spine.title && <span className={styles.title}>{spine.title}</span>}
           </div>
         ))}

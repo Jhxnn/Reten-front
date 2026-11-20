@@ -1,6 +1,6 @@
 .section {
   padding-block: clamp(var(--space-8), 10vw, var(--space-9));
-  background: var(--paper-shade);
+  background: var(--surface-alt);
 }
 
 .layout {
@@ -25,7 +25,7 @@
 }
 
 .atmosphereLabel {
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
   font-size: var(--step--1);
 }
 
@@ -51,7 +51,7 @@
 .tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-bottom: 1px solid var(--rule-on-paper);
+  border-bottom: 1px solid var(--line);
 }
 
 .tab {
@@ -68,7 +68,7 @@
 }
 
 .tab:hover {
-  border-bottom-color: var(--rule-on-paper);
+  border-bottom-color: var(--line);
 }
 
 .tab[aria-selected='true'] {
@@ -76,7 +76,7 @@
 }
 
 .side {
-  color: var(--olive);
+  color: var(--forest);
   font-size: var(--step--1);
 }
 
@@ -85,7 +85,7 @@
   font-variation-settings: 'opsz' 28;
   font-size: var(--step-1);
   line-height: 1.15;
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
 }
 
 .tab[aria-selected='true'] .modeName {
@@ -107,7 +107,7 @@
 }
 
 .summary {
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
 }
 
 .tracks {
@@ -121,28 +121,28 @@
   gap: var(--space-2) var(--space-5);
   align-items: baseline;
   padding-block: var(--space-4);
-  border-top: 1px solid var(--rule-on-paper);
+  border-top: 1px solid var(--line);
 }
 
 .trackNumber {
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 24;
   font-size: var(--step-1);
-  color: var(--olive);
+  color: var(--forest);
   font-variant-numeric: oldstyle-nums;
 }
 
 .trackTitle {
-  font-weight: 560;
+  font-weight: 650;
 }
 
 .trackArtist {
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
 .trackReason {
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -151,8 +151,8 @@
   max-width: var(--measure);
   margin-top: var(--space-6);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--rule-on-paper);
-  color: var(--muted-on-paper);
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
   font-size: var(--step--1);
 }
 

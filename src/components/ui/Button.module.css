@@ -9,8 +9,7 @@
   border-radius: var(--radius-hairline);
   font-family: var(--font-text);
   font-size: var(--step-0);
-  font-weight: 560;
-  letter-spacing: 0.005em;
+  font-weight: 600;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -27,22 +26,22 @@
 
 /* Sólido */
 .solid.dark {
-  background: var(--paper);
+  background: var(--mint);
   color: var(--ink);
 }
 .solid.dark:hover {
-  background: var(--vellum);
+  background: var(--surface);
 }
 
-.solid.paper {
+.solid.light {
+  background: var(--forest);
+  color: var(--surface);
+}
+.solid.light:hover {
   background: var(--ink);
-  color: var(--paper);
-}
-.solid.paper:hover {
-  background: var(--umber);
 }
 
-/* Discreto: só um fio que lembra o corte de uma página */
+/* Discreto: apenas um sublinhado */
 .quiet {
   background: transparent;
   padding-inline: 0.2rem;
@@ -51,17 +50,17 @@
 }
 
 .quiet.dark {
-  color: var(--paper);
-  border-color: var(--rule-on-dark);
+  color: var(--surface);
+  border-color: var(--line-on-dark);
 }
 .quiet.dark:hover {
-  border-color: var(--gilt);
+  border-color: var(--mint);
 }
 
-.quiet.paper {
+.quiet.light {
   color: var(--ink);
-  border-color: var(--rule-on-paper);
+  border-color: var(--line);
 }
-.quiet.paper:hover {
-  border-color: var(--olive);
+.quiet.light:hover {
+  border-color: var(--forest);
 }

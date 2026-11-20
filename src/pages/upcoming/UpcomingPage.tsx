@@ -22,7 +22,7 @@ export function UpcomingPage({ title, notFound = false }: UpcomingPageProps) {
             ? 'Não encontramos esta página. Verifique o endereço ou volte para o início.'
             : 'Esta parte do Reten ainda está em construção e chega na próxima etapa do desenvolvimento.'}
         </p>
-        <ButtonLink to="/" surface="paper">
+        <ButtonLink to="/" surface="light">
           Voltar para o início
         </ButtonLink>
       </div>

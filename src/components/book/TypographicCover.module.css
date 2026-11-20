@@ -10,25 +10,25 @@
   container-type: inline-size;
 }
 
-.umber {
-  background: var(--umber);
-  color: var(--paper);
-  --frame: var(--gilt);
-}
-.olive {
-  background: var(--olive);
-  color: var(--paper);
-  --frame: var(--vellum);
+.forest {
+  background: var(--forest);
+  color: var(--surface);
+  --frame: var(--mint);
 }
 .ink {
   background: var(--ink);
-  color: var(--paper);
-  --frame: var(--gilt);
+  color: var(--surface);
+  --frame: var(--sage);
 }
-.vellum {
-  background: var(--vellum);
-  color: var(--umber);
-  --frame: var(--umber);
+.mint {
+  background: var(--mint);
+  color: var(--ink);
+  --frame: var(--forest);
+}
+.sage {
+  background: var(--sage);
+  color: var(--ink);
+  --frame: var(--ink);
 }
 
 .frame {

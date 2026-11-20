@@ -23,5 +23,5 @@
 .text {
   max-width: 40ch;
   margin-bottom: var(--space-3);
-  color: var(--muted-on-paper);
+  color: var(--text-muted);
 }

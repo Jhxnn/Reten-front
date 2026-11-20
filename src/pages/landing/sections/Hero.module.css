@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: var(--umber);
+  background: var(--ink);
   color: var(--text-on-dark);
 }
 
@@ -23,13 +23,13 @@
 }
 
 .links a {
-  color: var(--muted-on-dark);
+  color: var(--text-muted-on-dark);
   text-decoration: none;
   transition: color 160ms ease;
 }
 
 .links a:hover {
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .copy {
@@ -44,15 +44,15 @@
   max-width: 11ch;
   font-size: min(var(--step-display), 13svh);
   font-variation-settings: 'opsz' 96;
-  font-weight: 480;
+  font-weight: 320;
   line-height: 0.94;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
 }
 
 .sub {
   max-width: 44ch;
   margin-top: var(--space-5);
-  color: var(--muted-on-dark);
+  color: var(--text-muted-on-dark);
   font-size: var(--step-1);
   line-height: 1.45;
   font-weight: 360;
@@ -67,16 +67,16 @@
 }
 
 .secondary {
-  color: var(--paper);
+  color: var(--surface);
   text-decoration: underline;
-  text-decoration-color: var(--rule-on-dark);
+  text-decoration-color: var(--line-on-dark);
   text-underline-offset: 0.35em;
   text-decoration-thickness: 1px;
   transition: text-decoration-color 160ms ease;
 }
 
 .secondary:hover {
-  text-decoration-color: var(--gilt);
+  text-decoration-color: var(--mint);
 }
 
 @media (max-width: 40rem) {
