@@ -19,7 +19,7 @@
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--line);
   border-radius: var(--radius-hairline);
-  background: #fff;
+  background: var(--card);
   font: inherit;
   line-height: 1.5;
   resize: vertical;

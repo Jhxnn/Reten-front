@@ -47,21 +47,10 @@
   gap: var(--space-5);
 }
 
-.name {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
 .main {
   max-width: var(--page-max);
   margin-inline: auto;
   padding: var(--space-7) var(--gutter) var(--space-9);
-}
-
-@media (max-width: 30rem) {
-  .name {
-    display: none;
-  }
 }
 
 @media (max-width: 36rem) {

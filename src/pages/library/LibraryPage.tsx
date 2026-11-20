@@ -4,6 +4,7 @@ import { FormMessage } from '../../components/form/FormMessage'
 import { ButtonLink } from '../../components/ui/Button'
 import { PageLoading } from '../../components/ui/PageLoading'
 import { useLibrary } from '../../features/library/api'
+import { useGenerationUsage } from '../../features/playlists/api'
 import { PlaylistDisc } from '../../features/library/PlaylistDisc'
 import styles from './LibraryPage.module.css'
 
@@ -14,6 +15,7 @@ function plural(count: number, one: string, many: string) {
 /** A estante pessoal: cada livro numa prateleira, com as trilhas criadas a partir dele. */
 export function LibraryPage() {
   const library = useLibrary()
+  const usage = useGenerationUsage()
 
   if (library.isPending) return <PageLoading />
   if (library.isError) return <FormMessage tone="error">Não foi possível carregar sua biblioteca.</FormMessage>
@@ -27,6 +29,7 @@ export function LibraryPage() {
         {bookCount > 0 && (
           <p className={styles.counts}>
             {plural(bookCount, 'livro', 'livros')} e {plural(playlistCount, 'trilha sonora', 'trilhas sonoras')}
+            {usage.data && <> · {usage.data.playlistCount} de {usage.data.maxPlaylists} vagas ocupadas</>}
           </p>
         )}
       </header>

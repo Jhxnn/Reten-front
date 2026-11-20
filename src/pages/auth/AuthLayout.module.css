@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: var(--space-7);
   padding: var(--space-6) clamp(var(--space-6), 5vw, var(--space-8));
-  background: var(--ink);
+  background: var(--brand-night);
   color: var(--text-on-dark);
 }
 
@@ -36,15 +36,15 @@
 .bars span {
   width: 0.6rem;
   border-radius: 1px;
-  background: var(--forest);
+  background: var(--brand-forest);
 }
 
 .bars span:nth-child(3n) {
-  background: var(--sage);
+  background: var(--brand-sage);
 }
 
 .bars span:nth-child(4n) {
-  background: var(--mint);
+  background: var(--brand-mint);
 }
 
 .main {
@@ -80,7 +80,7 @@
 
 .footer a,
 .intro a {
-  color: var(--forest);
+  color: var(--brand-forest);
   font-weight: 600;
   text-underline-offset: 0.2em;
 }

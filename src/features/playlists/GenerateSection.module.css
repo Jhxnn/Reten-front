@@ -36,7 +36,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-hairline);
-  background: #fff;
+  background: var(--card);
   cursor: pointer;
   transition:
     border-color 160ms ease,
@@ -126,7 +126,7 @@
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--line);
   border-radius: var(--radius-hairline);
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   font: inherit;
   line-height: 1.5;
@@ -166,4 +166,10 @@
   .mode {
     min-height: auto;
   }
+}
+
+.inlineLink {
+  color: var(--forest);
+  font-weight: 650;
+  text-underline-offset: 0.2em;
 }

@@ -26,11 +26,11 @@
 
 /* Sólido */
 .solid.dark {
-  background: var(--mint);
-  color: var(--ink);
+  background: var(--brand-mint);
+  color: var(--brand-night);
 }
 .solid.dark:hover {
-  background: var(--surface);
+  background: var(--brand-paper);
 }
 
 .solid.light {
@@ -50,11 +50,11 @@
 }
 
 .quiet.dark {
-  color: var(--surface);
+  color: var(--brand-paper);
   border-color: var(--line-on-dark);
 }
 .quiet.dark:hover {
-  border-color: var(--mint);
+  border-color: var(--brand-mint);
 }
 
 .quiet.light {

@@ -80,6 +80,21 @@ export type Usage = {
   remaining: number
   resetsAt: string | null
   aiConfigured: boolean
+  /** Quantas playlists cada leitor pode guardar e quantas ocupam vaga agora (as que falharam não contam). */
+  maxPlaylists: number
+  playlistCount: number
+}
+
+export function useDeletePlaylist() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (id: string) => api<void>(`/playlists/${id}`, { method: 'DELETE' }),
+    onSuccess: (_, id) => {
+      queryClient.removeQueries({ queryKey: detailKey(id) })
+      queryClient.invalidateQueries({ queryKey: usageKey })
+      queryClient.invalidateQueries({ queryKey: ['library'] })
+    },
+  })
 }
 
 const usageKey = ['playlists', 'usage'] as const

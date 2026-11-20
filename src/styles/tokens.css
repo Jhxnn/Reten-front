@@ -4,7 +4,17 @@
  * e menta como respiro.
  */
 :root {
-  /* Cor — base */
+  color-scheme: light;
+
+  /* Cor — marca fixa: objetos (capas, discos) e seções sempre escuras não mudam com o tema */
+  --brand-paper: #fafaf7;
+  --brand-night: #10241e;
+  --brand-night-deep: #0a1814;
+  --brand-forest: #1f5c4a;
+  --brand-mint: #d3e6da;
+  --brand-sage: #8fb5a2;
+
+  /* Cor — base (muda com o tema) */
   --surface: #fafaf7;      /* branco: página */
   --surface-alt: #eef4f0;  /* branco tingido de menta: seções alternadas */
   --ink: #10241e;          /* verde quase preto: texto e seções escuras */
@@ -13,14 +23,17 @@
   --mint: #d3e6da;         /* menta: apoio e acentos sobre fundo escuro */
   --sage: #8fb5a2;         /* intermediário entre floresta e menta */
   --danger: #b0412e;       /* erros: vermelho terroso, legível sobre o branco */
+  --card: #fff;            /* cartões e campos sobre a página */
+  --shadow: #10241e;       /* sombras e véus de diálogo */
+  --shelf: var(--ink);     /* tábua da estante na biblioteca */
 
   /* Cor — papéis */
   --text: var(--ink);
   --text-muted: color-mix(in srgb, var(--ink) 66%, var(--surface));
-  --text-on-dark: var(--surface);
-  --text-muted-on-dark: color-mix(in srgb, var(--surface) 66%, var(--ink));
+  --text-on-dark: var(--brand-paper);
+  --text-muted-on-dark: color-mix(in srgb, var(--brand-paper) 66%, var(--brand-night));
   --line: color-mix(in srgb, var(--ink) 14%, var(--surface));
-  --line-on-dark: color-mix(in srgb, var(--surface) 16%, var(--ink));
+  --line-on-dark: color-mix(in srgb, var(--brand-paper) 16%, var(--brand-night));
   --focus: var(--forest);
 
   /* Tipografia */
@@ -57,4 +70,24 @@
 
   /* Movimento */
   --ease-settle: cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+/*
+ * Modo escuro: a página vira o verde quase preto e o "ink" vira o claro. Como os estados selecionados
+ * usam ink de fundo com surface de texto, eles se invertem sozinhos. A menta passa a ser o acento
+ * sobre esse fundo claro invertido.
+ */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #0e1b17;
+  --surface-alt: #152721;
+  --ink: #e3ebe6;
+  --ink-deep: #f4f7f5;
+  --forest: #86c1a5;
+  --mint: #1f5c4a;
+  --sage: #5d8a76;
+  --danger: #ec8f78;
+  --card: #13241f;
+  --shadow: #000;
+  --shelf: #2c4a3f;
 }

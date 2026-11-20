@@ -6,22 +6,17 @@
 }
 
 .light {
-  color: var(--surface);
-  --mark-accent: var(--mint);
+  color: var(--surface-fixed);
 }
 
 .dark {
-  color: var(--ink);
-  --mark-accent: var(--forest);
+  color: var(--text);
 }
 
 .mark {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.accent {
-  fill: var(--mark-accent);
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .wordmark {

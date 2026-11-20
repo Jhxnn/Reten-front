@@ -3,6 +3,7 @@ import { FormMessage } from '../../components/form/FormMessage'
 import { ButtonLink } from '../../components/ui/Button'
 import { PageLoading } from '../../components/ui/PageLoading'
 import { usePlaylist } from '../../features/playlists/api'
+import { DeletePlaylist } from '../../features/playlists/DeletePlaylist'
 import { GenerationProgress } from '../../features/playlists/GenerationProgress'
 import { PlaylistView } from '../../features/playlists/PlaylistView'
 import { ApiError } from '../../lib/api/http'
@@ -34,6 +35,7 @@ export function PlaylistPage() {
         <h1 className={styles.title}>A trilha não ficou pronta</h1>
         <FormMessage tone="error">{data.failure?.message}</FormMessage>
         <ButtonLink to={`/livros/${data.book.id}?modo=${data.mode}`}>Tentar de novo</ButtonLink>
+        <DeletePlaylist playlistId={data.id} savedOnSpotify={false} />
       </div>
     )
   }

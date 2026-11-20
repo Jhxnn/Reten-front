@@ -1,5 +1,5 @@
 import { useId, useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { FormMessage } from '../../components/form/FormMessage'
 import { Button } from '../../components/ui/Button'
 import { ApiError } from '../../lib/api/http'
@@ -25,6 +25,7 @@ export function GenerateSection({ bookId, initialMode = 'THEMATIC' }: GenerateSe
   const notesId = useId()
 
   const aiMissing = usage.data && !usage.data.aiConfigured
+  const libraryFull = usage.data && usage.data.playlistCount >= usage.data.maxPlaylists
   const limitReached = usage.data && usage.data.remaining === 0
   const error =
     generate.error instanceof ApiError
@@ -93,7 +94,16 @@ export function GenerateSection({ bookId, initialMode = 'THEMATIC' }: GenerateSe
             A inteligência artificial ainda não foi configurada neste ambiente, então a geração está indisponível.
           </FormMessage>
         )}
-        {!aiMissing && limitReached && usage.data?.resetsAt && (
+        {!aiMissing && libraryFull && (
+          <FormMessage tone="info">
+            Sua biblioteca está cheia: você já tem {usage.data?.maxPlaylists} playlists.{' '}
+            <Link to="/biblioteca" className={styles.inlineLink}>
+              Apague uma na biblioteca
+            </Link>{' '}
+            para criar outra.
+          </FormMessage>
+        )}
+        {!aiMissing && !libraryFull && limitReached && usage.data?.resetsAt && (
           <FormMessage tone="info">
             Você usou as {usage.data.limit} gerações das últimas 24 horas. A próxima libera às{' '}
             {timeFormat.format(new Date(usage.data.resetsAt))}.
@@ -102,12 +112,15 @@ export function GenerateSection({ bookId, initialMode = 'THEMATIC' }: GenerateSe
         {error && <FormMessage tone="error">{error}</FormMessage>}
 
         <div className={styles.actions}>
-          <Button type="submit" disabled={generate.isPending || Boolean(aiMissing) || Boolean(limitReached)}>
+          <Button
+            type="submit"
+            disabled={generate.isPending || Boolean(aiMissing) || Boolean(libraryFull) || Boolean(limitReached)}
+          >
             {generate.isPending ? 'Começando…' : 'Gerar trilha sonora'}
           </Button>
           {usage.data && usage.data.aiConfigured && (
             <p className={styles.usage}>
-              {usage.data.remaining} de {usage.data.limit} gerações disponíveis nas próximas 24 horas
+              {usage.data.playlistCount} de {usage.data.maxPlaylists} playlists na sua biblioteca
             </p>
           )}
         </div>

@@ -8,7 +8,7 @@
   border: 0;
   background: var(--surface);
   color: var(--text);
-  box-shadow: -24px 0 60px -30px color-mix(in srgb, var(--ink) 60%, transparent);
+  box-shadow: -24px 0 60px -30px color-mix(in srgb, var(--shadow) 60%, transparent);
 }
 
 .dialog[open] {
@@ -16,7 +16,7 @@
 }
 
 .dialog::backdrop {
-  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  background: color-mix(in srgb, var(--shadow) 45%, transparent);
 }
 
 @keyframes slide-in {

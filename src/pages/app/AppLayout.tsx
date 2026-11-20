@@ -1,13 +1,12 @@
 import { NavLink, Outlet } from 'react-router'
 import { Logo } from '../../components/brand/Logo'
-import { Button } from '../../components/ui/Button'
-import { useCurrentUser, useLogout } from '../../features/auth/hooks'
+import { useCurrentUser } from '../../features/auth/hooks'
 import styles from './AppLayout.module.css'
+import { UserMenu } from './UserMenu'
 
 /** Moldura da área logada. */
 export function AppLayout() {
   const { data: user } = useCurrentUser()
-  const logout = useLogout()
 
   return (
     <div className={styles.shell}>
@@ -26,25 +25,7 @@ export function AppLayout() {
             </NavLink>
           </nav>
         </div>
-        <div className={styles.account}>
-          {user && <span className={styles.name}>{user.name}</span>}
-          <Button
-            variant="quiet"
-            onClick={async () => {
-              // Encerra a sessão no servidor e recarrega em "/". O recarregamento descarta todo o estado
-              // do cliente (cache de consultas do usuário anterior) e evita que o guard da rota protegida,
-              // ao ver o usuário sumir, redirecione para /entrar antes de a navegação terminar.
-              try {
-                await logout.mutateAsync()
-              } finally {
-                window.location.replace('/')
-              }
-            }}
-            disabled={logout.isPending}
-          >
-            Sair
-          </Button>
-        </div>
+        <div className={styles.account}>{user && <UserMenu name={user.name} />}</div>
       </header>
       <main className={styles.main}>
         <Outlet />

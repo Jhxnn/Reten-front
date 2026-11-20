@@ -1,6 +1,6 @@
 .section {
   padding-block: clamp(var(--space-8), 11vw, var(--space-9));
-  background: var(--ink);
+  background: var(--brand-night);
   color: var(--text-on-dark);
 }
 
@@ -28,7 +28,7 @@
 
 .text {
   max-width: 32ch;
-  color: color-mix(in srgb, var(--surface) 70%, var(--ink));
+  color: color-mix(in srgb, var(--brand-paper) 70%, var(--brand-night));
 }
 
 @media (max-width: 52rem) {

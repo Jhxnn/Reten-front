@@ -6,29 +6,29 @@
   box-shadow:
     inset 6px 0 0 -3px color-mix(in srgb, black 22%, transparent),
     0 1px 0 color-mix(in srgb, black 12%, transparent),
-    0 18px 40px -22px color-mix(in srgb, var(--ink) 70%, transparent);
+    0 18px 40px -22px color-mix(in srgb, var(--brand-night) 70%, transparent);
   container-type: inline-size;
 }
 
 .forest {
-  background: var(--forest);
-  color: var(--surface);
-  --frame: var(--mint);
+  background: var(--brand-forest);
+  color: var(--brand-paper);
+  --frame: var(--brand-mint);
 }
 .ink {
-  background: var(--ink);
-  color: var(--surface);
-  --frame: var(--sage);
+  background: var(--brand-night);
+  color: var(--brand-paper);
+  --frame: var(--brand-sage);
 }
 .mint {
-  background: var(--mint);
-  color: var(--ink);
-  --frame: var(--forest);
+  background: var(--brand-mint);
+  color: var(--brand-night);
+  --frame: var(--brand-forest);
 }
 .sage {
-  background: var(--sage);
-  color: var(--ink);
-  --frame: var(--ink);
+  background: var(--brand-sage);
+  color: var(--brand-night);
+  --frame: var(--brand-night);
 }
 
 .frame {

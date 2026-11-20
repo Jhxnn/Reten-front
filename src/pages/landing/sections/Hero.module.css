@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: var(--ink);
+  background: var(--brand-night);
   color: var(--text-on-dark);
 }
 
@@ -29,7 +29,7 @@
 }
 
 .links a:hover {
-  color: var(--surface);
+  color: var(--brand-paper);
 }
 
 .copy {
@@ -67,7 +67,7 @@
 }
 
 .secondary {
-  color: var(--surface);
+  color: var(--brand-paper);
   text-decoration: underline;
   text-decoration-color: var(--line-on-dark);
   text-underline-offset: 0.35em;
@@ -76,7 +76,7 @@
 }
 
 .secondary:hover {
-  text-decoration-color: var(--mint);
+  text-decoration-color: var(--brand-mint);
 }
 
 @media (max-width: 40rem) {

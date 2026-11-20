@@ -8,6 +8,7 @@ import { ApiError } from '../../lib/api/http'
 import { spotifyOutcomeMessages } from '../spotify/api'
 import { formatTotalDuration, useRemoveTrack, useReverify, type Atmosphere, type Playlist } from './api'
 import { AddTrackDialog } from './AddTrackDialog'
+import { DeletePlaylist } from './DeletePlaylist'
 import { EditDetailsForm } from './EditDetailsForm'
 import { modeName } from './modes'
 import { SpotifySavePanel } from './SpotifySavePanel'
@@ -131,6 +132,8 @@ export function PlaylistView({ playlist }: { playlist: Playlist }) {
       )}
 
       {playlist.atmosphere && <AtmosphereSection atmosphere={playlist.atmosphere} />}
+
+      <DeletePlaylist playlistId={playlist.id} savedOnSpotify={Boolean(playlist.spotify.playlistUrl)} />
     </div>
   )
 }

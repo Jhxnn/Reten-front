@@ -7,7 +7,7 @@
   box-shadow:
     inset 6px 0 0 -3px color-mix(in srgb, black 18%, transparent),
     0 1px 0 color-mix(in srgb, black 10%, transparent),
-    0 18px 40px -24px color-mix(in srgb, var(--ink) 70%, transparent);
+    0 18px 40px -24px color-mix(in srgb, var(--shadow) 70%, transparent);
 }
 
 .image {
