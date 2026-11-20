@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent } from 'react'
-import { TypographicCover } from '../../../components/book/TypographicCover'
+import { BookCover } from '../../../components/book/BookCover'
 import { demoBook, listeningModes, type ListeningModeId } from '../content'
 import layout from './layout.module.css'
 import styles from './ListeningModes.module.css'
@@ -32,7 +32,12 @@ export function ListeningModes() {
 
         <div className={styles.layout}>
           <aside className={styles.book}>
-            <TypographicCover title={demoBook.title} author={demoBook.author} tone={demoBook.tone} className={styles.cover} />
+            <BookCover
+              title={demoBook.title}
+              authors={[demoBook.author]}
+              coverUrl={demoBook.coverUrl}
+              className={styles.cover}
+            />
             <div className={styles.atmosphere}>
               <p className={styles.atmosphereLabel}>Atmosfera identificada</p>
               <ul className={styles.atmosphereList}>

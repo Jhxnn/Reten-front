@@ -4,7 +4,7 @@
  * não são resultado de uma geração por IA e são apresentados na página como exemplo editorial.
  * As faixas citadas existem; no produto, cada faixa é verificada na Spotify Web API.
  */
-import type { CoverTone } from '../../components/book/TypographicCover'
+import coverNomeDoVento from '../../assets/covers/o-nome-do-vento.jpg'
 
 export type ListeningModeId = 'thematic' | 'vocal' | 'focus'
 
@@ -27,7 +27,8 @@ export type ListeningMode = {
 export const demoBook = {
   title: 'O Nome do Vento',
   author: 'Patrick Rothfuss',
-  tone: 'forest' as CoverTone,
+  // Capa da edição brasileira (Editora Arqueiro).
+  coverUrl: coverNomeDoVento,
   atmosphere: ['Fantasia', 'Mistério', 'Melancolia', 'Contemplação', 'Aventura épica'],
 }
 

@@ -15,6 +15,8 @@ export default defineConfig(({ mode }) => {
       host: '127.0.0.1',
       port: 5173,
       strictPort: true,
+      // Túnel HTTPS do ngrok (usado como redirect URI da Spotify). O Vite recusa hosts desconhecidos.
+      allowedHosts: ['.ngrok-free.app', '.ngrok-free.dev', '.ngrok.app', '.ngrok.dev'],
       proxy: {
         '/api': { target: apiTarget, changeOrigin: false },
       },
