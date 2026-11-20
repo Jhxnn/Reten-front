@@ -80,8 +80,11 @@
     gap: var(--space-1) var(--space-3);
   }
 
+  /* No celular o título ocupa a linha inteira e quebra; sem isso, títulos longos vazavam da tela. */
   .book,
   .mood {
+    flex: 1 1 100%;
+    min-width: 0;
     max-width: none;
   }
 

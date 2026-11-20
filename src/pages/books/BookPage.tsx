@@ -50,6 +50,7 @@ export function BookPage() {
         <BookDetails
           book={data}
           collapsibleDescription
+          titleAs="h1"
           descriptionNote={data.catalogId.startsWith('openlibrary:') && data.description ? 'Sinopse do Open Library, muitas vezes em inglês.' : undefined}
         />
       </article>

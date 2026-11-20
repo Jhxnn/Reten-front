@@ -36,12 +36,12 @@ export function useRegister() {
   })
 }
 
+/**
+ * Encerra a sessão no servidor. Não mexe no cache: quem chama recarrega a página em seguida,
+ * o que descarta todo o estado do usuário de uma vez (ver AppLayout).
+ */
 export function useLogout() {
-  const setUser = useSetCurrentUser()
-  return useMutation({
-    mutationFn: authApi.logout,
-    onSettled: () => setUser(null),
-  })
+  return useMutation({ mutationFn: authApi.logout })
 }
 
 export function useForgotPassword() {

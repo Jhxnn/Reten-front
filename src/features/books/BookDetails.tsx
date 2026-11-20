@@ -6,12 +6,23 @@ type BookDetailsProps = {
   book: CatalogBook
   /** Sinopse ainda carregando (busca não traz sinopse; ela vem dos detalhes). */
   descriptionPending?: boolean
+  /** A busca dos detalhes falhou: a ausência de sinopse não significa que ela não exista. */
+  descriptionUnavailable?: boolean
   descriptionNote?: string
   collapsibleDescription?: boolean
+  /** h1 quando a ficha é o assunto da página (página do livro); h2 dentro de painéis. */
+  titleAs?: 'h1' | 'h2'
 }
 
 /** Ficha do livro: título, autoria, dados de publicação, assuntos e sinopse. */
-export function BookDetails({ book, descriptionPending, descriptionNote, collapsibleDescription }: BookDetailsProps) {
+export function BookDetails({
+  book,
+  descriptionPending,
+  descriptionUnavailable,
+  descriptionNote,
+  collapsibleDescription,
+  titleAs: Title = 'h2',
+}: BookDetailsProps) {
   const [expanded, setExpanded] = useState(false)
   const descriptionId = useId()
   // Sinopses longas ficam recolhidas para a escolha do modo musical aparecer logo abaixo.
@@ -26,7 +37,7 @@ export function BookDetails({ book, descriptionPending, descriptionNote, collaps
   return (
     <div className={styles.details}>
       <div className={styles.heading}>
-        <h2 className={styles.title}>{book.title}</h2>
+        <Title className={styles.title}>{book.title}</Title>
         {book.subtitle && <p className={styles.subtitle}>{book.subtitle}</p>}
         <p className={styles.authors}>{book.authors.join(', ') || 'Autor desconhecido'}</p>
       </div>
@@ -53,6 +64,9 @@ export function BookDetails({ book, descriptionPending, descriptionNote, collaps
         <h3 className={styles.sectionLabel}>Sinopse</h3>
         {descriptionPending ? (
           <p className={styles.muted}>Carregando sinopse…</p>
+        ) : descriptionUnavailable && !book.description ? (
+          // A consulta falhou: não sabemos se existe sinopse, então não afirmamos que não existe.
+          <p className={styles.muted}>Não conseguimos carregar a sinopse agora. Feche e abra o livro de novo para tentar outra vez.</p>
         ) : book.description ? (
           <>
             <div

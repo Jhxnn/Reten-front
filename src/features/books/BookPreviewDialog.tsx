@@ -64,6 +64,7 @@ export function BookPreviewDialog({ book, source, onClose }: BookPreviewDialogPr
             <BookDetails
               book={shown}
               descriptionPending={details.isPending}
+              descriptionUnavailable={details.isError}
               descriptionNote={source === 'openlibrary' && shown.description ? 'Sinopse do Open Library, muitas vezes em inglês.' : undefined}
             />
           </div>
