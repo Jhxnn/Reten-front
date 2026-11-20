@@ -1,0 +1,169 @@
+.section {
+  display: grid;
+  gap: var(--space-5);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--line);
+}
+
+.title {
+  font-size: var(--step-3);
+  font-variation-settings: 'opsz' 72;
+  font-weight: 340;
+}
+
+.form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Três lados de um disco */
+.modes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.mode {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-height: 11rem;
+  padding: var(--space-5);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-hairline);
+  background: #fff;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.mode:hover {
+  border-color: var(--forest);
+}
+
+.mode:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.mode[data-selected='true'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--surface);
+}
+
+/* Sulcos de vinil no canto: aparecem no lado escolhido */
+.groove {
+  position: absolute;
+  right: -3.5rem;
+  bottom: -3.5rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 5px, color-mix(in srgb, var(--mint) 35%, transparent) 5px 6px);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.mode[data-selected='true'] .groove {
+  opacity: 1;
+}
+
+.side {
+  color: var(--forest);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.mode[data-selected='true'] .side {
+  color: var(--mint);
+}
+
+.modeName {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: var(--step-2);
+  font-weight: 360;
+  line-height: 1.1;
+}
+
+.summary {
+  max-width: 28ch;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.mode[data-selected='true'] .summary {
+  color: var(--text-muted-on-dark);
+}
+
+.notes {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 44rem;
+}
+
+.notesLabel {
+  font-weight: 650;
+}
+
+.optional {
+  margin-left: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-hairline);
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--forest) 18%, transparent);
+}
+
+.counter {
+  justify-self: end;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+}
+
+.usage {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 52rem) {
+  .modes {
+    grid-template-columns: 1fr;
+  }
+
+  .mode {
+    min-height: auto;
+  }
+}

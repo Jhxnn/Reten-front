@@ -1,3 +1,4 @@
+import { useId, useState } from 'react'
 import { formatPublishedDate, type CatalogBook } from './api'
 import styles from './BookDetails.module.css'
 
@@ -6,10 +7,16 @@ type BookDetailsProps = {
   /** Sinopse ainda carregando (busca não traz sinopse; ela vem dos detalhes). */
   descriptionPending?: boolean
   descriptionNote?: string
+  collapsibleDescription?: boolean
 }
 
 /** Ficha do livro: título, autoria, dados de publicação, assuntos e sinopse. */
-export function BookDetails({ book, descriptionPending, descriptionNote }: BookDetailsProps) {
+export function BookDetails({ book, descriptionPending, descriptionNote, collapsibleDescription }: BookDetailsProps) {
+  const [expanded, setExpanded] = useState(false)
+  const descriptionId = useId()
+  // Sinopses longas ficam recolhidas para a escolha do modo musical aparecer logo abaixo.
+  const canCollapse = Boolean(collapsibleDescription && book.description && book.description.length > 600)
+  const collapsed = canCollapse && !expanded
   const facts = [
     { label: 'Publicação', value: formatPublishedDate(book.publishedDate) },
     { label: 'Páginas', value: book.pageCount ? String(book.pageCount) : null },
@@ -48,11 +55,25 @@ export function BookDetails({ book, descriptionPending, descriptionNote }: BookD
           <p className={styles.muted}>Carregando sinopse…</p>
         ) : book.description ? (
           <>
-            <div className={styles.description}>
+            <div
+              id={descriptionId}
+              className={`${styles.description} ${collapsed ? styles.collapsed : ''}`}
+            >
               {book.description.split(/\n{2,}/).map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
+            {canCollapse && (
+              <button
+                type="button"
+                className={styles.toggle}
+                aria-expanded={!collapsed}
+                aria-controls={descriptionId}
+                onClick={() => setExpanded((value) => !value)}
+              >
+                {collapsed ? 'Ler sinopse completa' : 'Mostrar menos'}
+              </button>
+            )}
             {descriptionNote && <p className={styles.note}>{descriptionNote}</p>}
           </>
         ) : (

@@ -1,5 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
-import { Link, useParams } from 'react-router'
+import { Link, useParams, useSearchParams } from 'react-router'
+import { GenerateSection } from '../../features/playlists/GenerateSection'
+import { listeningModes } from '../../features/playlists/modes'
 import { BookCover } from '../../components/book/BookCover'
 import { FormMessage } from '../../components/form/FormMessage'
 import { PageLoading } from '../../components/ui/PageLoading'
@@ -8,10 +10,13 @@ import { BookDetails } from '../../features/books/BookDetails'
 import { ApiError } from '../../lib/api/http'
 import styles from './BookPage.module.css'
 
-/** Livro escolhido: resumo da obra. A Fase 4 adiciona aqui a escolha do estilo musical. */
+/** Livro escolhido: resumo da obra e escolha de como ouvi-lo. */
 export function BookPage() {
   const { id } = useParams()
   const book = useBook(id)
+  // ?modo=VOCAL pré-seleciona o modo (usado em "tentar de novo" e "outra versão").
+  const [params] = useSearchParams()
+  const modeParam = listeningModes.find((m) => m.id === params.get('modo'))?.id
 
   if (book.isPending) return <PageLoading />
 
@@ -41,19 +46,12 @@ export function BookPage() {
         <BookCover title={data.title} authors={data.authors} coverUrl={data.coverUrl} className={styles.cover} />
         <BookDetails
           book={data}
+          collapsibleDescription
           descriptionNote={data.catalogId.startsWith('openlibrary:') && data.description ? 'Sinopse do Open Library, muitas vezes em inglês.' : undefined}
         />
       </article>
 
-      <section className={styles.next} aria-labelledby="proximo-passo">
-        <h2 id="proximo-passo" className={styles.nextTitle}>
-          Como você quer ouvir este livro?
-        </h2>
-        <p className={styles.nextText}>
-          A escolha entre trilha temática, músicas com voz e modo concentração, e a geração da playlist, chegam na
-          próxima etapa do Reten.
-        </p>
-      </section>
+      <GenerateSection bookId={data.id} initialMode={modeParam} />
     </div>
   )
 }
