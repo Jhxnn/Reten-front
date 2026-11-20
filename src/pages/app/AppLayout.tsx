@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from 'react-router'
+import { NavLink, Outlet, useNavigate } from 'react-router'
 import { Logo } from '../../components/brand/Logo'
 import { Button } from '../../components/ui/Button'
 import { useCurrentUser, useLogout } from '../../features/auth/hooks'
@@ -13,7 +13,17 @@ export function AppLayout() {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <Logo tone="dark" />
+        <div className={styles.brand}>
+          <Logo tone="dark" />
+          <nav aria-label="Área do leitor" className={styles.nav}>
+            <NavLink to="/inicio" className={styles.navLink}>
+              Início
+            </NavLink>
+            <NavLink to="/livros" className={styles.navLink}>
+              Livros
+            </NavLink>
+          </nav>
+        </div>
         <div className={styles.account}>
           {user && <span className={styles.name}>{user.name}</span>}
           <Button

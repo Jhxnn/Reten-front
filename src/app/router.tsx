@@ -6,6 +6,8 @@ import { ForgotPasswordPage } from '../pages/auth/ForgotPasswordPage'
 import { ResetPasswordPage } from '../pages/auth/ResetPasswordPage'
 import { SignInPage } from '../pages/auth/SignInPage'
 import { SignUpPage } from '../pages/auth/SignUpPage'
+import { BookPage } from '../pages/books/BookPage'
+import { BookSearchPage } from '../pages/books/BookSearchPage'
 import { LandingPage } from '../pages/landing/LandingPage'
 import { UpcomingPage } from '../pages/upcoming/UpcomingPage'
 
@@ -25,7 +27,11 @@ export const router = createBrowserRouter([
         <AppLayout />
       </RequireAuth>
     ),
-    children: [{ path: '/inicio', element: <HomePage /> }],
+    children: [
+      { path: '/inicio', element: <HomePage /> },
+      { path: '/livros', element: <BookSearchPage /> },
+      { path: '/livros/:id', element: <BookPage /> },
+    ],
   },
 
   { path: '*', element: <UpcomingPage title="Página não encontrada" notFound /> },

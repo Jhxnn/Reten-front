@@ -1,0 +1,79 @@
+.details {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.heading {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.title {
+  font-size: var(--step-3);
+  font-variation-settings: 'opsz' 72;
+  font-weight: 360;
+  line-height: 1.05;
+}
+
+.subtitle {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 24;
+  font-size: var(--step-1);
+  font-weight: 340;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
+
+.authors {
+  margin-top: var(--space-2);
+  font-weight: 650;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-7);
+  margin: 0;
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--line);
+}
+
+.facts dt {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.facts dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sectionLabel {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-text);
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--forest);
+}
+
+.categories {
+  color: var(--text-muted);
+}
+
+.description {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+.muted,
+.note {
+  color: var(--text-muted);
+}
+
+.note {
+  margin-top: var(--space-3);
+  font-size: var(--step--1);
+}

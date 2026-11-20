@@ -12,6 +12,35 @@
   padding: var(--space-5) var(--gutter);
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.navLink {
+  padding-block: 0.3rem;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--text);
+}
+
+.navLink[aria-current='page'] {
+  border-bottom-color: var(--forest);
+  color: var(--text);
+}
+
 .account {
   display: flex;
   align-items: center;
@@ -32,5 +61,15 @@
 @media (max-width: 30rem) {
   .name {
     display: none;
+  }
+}
+
+@media (max-width: 36rem) {
+  .brand {
+    gap: var(--space-5);
+  }
+
+  .nav {
+    gap: var(--space-4);
   }
 }

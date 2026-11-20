@@ -1,6 +1,12 @@
 .page {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-8);
+}
+
+.intro {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
   max-width: 44rem;
 }
 
@@ -12,10 +18,21 @@
 }
 
 .lead {
-  max-width: 52ch;
-  margin-top: calc(var(--space-4) * -1);
+  max-width: 44ch;
+  margin-bottom: var(--space-3);
   color: var(--text-muted);
   font-size: var(--step-1);
   line-height: 1.45;
   font-weight: 380;
+}
+
+.section {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.sectionTitle {
+  font-size: var(--step-2);
+  font-variation-settings: 'opsz' 36;
+  font-weight: 360;
 }

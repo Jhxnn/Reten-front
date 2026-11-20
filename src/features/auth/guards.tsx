@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
-import { Navigate, useLocation } from 'react-router'
+import { Navigate, useLocation, useSearchParams } from 'react-router'
 import { PageLoading } from '../../components/ui/PageLoading'
 import { useCurrentUser } from './hooks'
+import { safeReturnPath } from './returnPath'
 
 /** Rotas que exigem sessão. Sem sessão, vai para o login e volta depois. */
 export function RequireAuth({ children }: { children: ReactNode }) {
@@ -16,10 +17,14 @@ export function RequireAuth({ children }: { children: ReactNode }) {
   return children
 }
 
-/** Páginas de login/cadastro: quem já tem sessão vai direto para o início. */
+/**
+ * Páginas de login/cadastro: quem já tem sessão segue para o destino pedido (?voltar=) ou o início.
+ * Também é este guard que redireciona logo após o login, quando o usuário entra no cache.
+ */
 export function RedirectIfAuthenticated({ children }: { children: ReactNode }) {
   const { data: user, isPending } = useCurrentUser()
+  const [params] = useSearchParams()
   if (isPending) return <PageLoading />
-  if (user) return <Navigate to="/inicio" replace />
+  if (user) return <Navigate to={safeReturnPath(params.get('voltar'))} replace />
   return children
 }
