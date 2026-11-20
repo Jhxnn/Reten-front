@@ -1,0 +1,38 @@
+.section {
+  padding-block: clamp(var(--space-8), 11vw, var(--space-9));
+  background: var(--ink);
+  color: var(--text-on-dark);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: end;
+}
+
+.title {
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 6.4vw, 5rem);
+  font-variation-settings: 'opsz' 96;
+  font-weight: 460;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.side {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.text {
+  max-width: 32ch;
+  color: color-mix(in srgb, var(--paper) 70%, var(--ink));
+}
+
+@media (max-width: 52rem) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}

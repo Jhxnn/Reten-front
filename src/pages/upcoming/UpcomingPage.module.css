@@ -1,0 +1,27 @@
+.page {
+  display: grid;
+  min-height: 100dvh;
+  padding: var(--gutter);
+  place-items: center start;
+}
+
+.inner {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-size: var(--step-4);
+  font-variation-settings: 'opsz' 72;
+}
+
+.text {
+  max-width: 40ch;
+  margin-bottom: var(--space-3);
+  color: var(--muted-on-paper);
+}

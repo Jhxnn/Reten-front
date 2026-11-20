@@ -1,0 +1,69 @@
+.footer {
+  background: var(--ink);
+  color: color-mix(in srgb, var(--paper) 72%, var(--ink));
+  font-size: 0.95rem;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: var(--space-7);
+  padding-block: var(--space-8) var(--space-7);
+  border-top: 1px solid color-mix(in srgb, var(--paper) 12%, var(--ink));
+}
+
+.brand {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: 'opsz' 18;
+}
+
+.links {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.links a {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--paper);
+}
+
+.colophon {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  max-width: 44ch;
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.colophonTitle {
+  color: var(--gilt);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-0);
+}
+
+.base {
+  padding-block: var(--space-5) var(--space-6);
+  font-size: var(--step--1);
+  color: color-mix(in srgb, var(--paper) 50%, var(--ink));
+}
+
+@media (max-width: 52rem) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

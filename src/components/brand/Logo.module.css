@@ -1,0 +1,41 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.light {
+  color: var(--paper);
+  --spine-fill: var(--paper);
+  --spine-band: var(--umber);
+}
+
+.dark {
+  color: var(--ink);
+  --spine-fill: var(--umber);
+  --spine-band: var(--gilt);
+}
+
+.mark {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.spine {
+  fill: var(--spine-fill);
+}
+
+.spineBand {
+  fill: var(--spine-band);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 28;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transform: translateY(-0.04em);
+}

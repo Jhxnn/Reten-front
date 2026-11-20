@@ -1,0 +1,189 @@
+.section {
+  padding-block: clamp(var(--space-8), 10vw, var(--space-9));
+  background: var(--paper-shade);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 19rem) minmax(0, 1fr);
+  gap: clamp(var(--space-6), 6vw, var(--space-9));
+  margin-top: clamp(var(--space-7), 6vw, var(--space-8));
+}
+
+.book {
+  align-self: start;
+  position: sticky;
+  top: var(--space-6);
+}
+
+.cover {
+  max-width: 19rem;
+}
+
+.atmosphere {
+  margin-top: var(--space-6);
+}
+
+.atmosphereLabel {
+  color: var(--muted-on-paper);
+  font-size: var(--step--1);
+}
+
+.atmosphereList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0;
+  margin-top: var(--space-2);
+  list-style: none;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 24;
+  font-size: var(--step-1);
+  font-style: italic;
+}
+
+/* Vírgulas tipográficas entre os termos, em vez de chips */
+.atmosphereList li:not(:last-child)::after {
+  content: ',';
+  margin-right: 0.35em;
+}
+
+/* Abas como os lados de um disco */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--rule-on-paper);
+}
+
+.tab {
+  display: grid;
+  gap: 0.2rem;
+  padding: var(--space-4) var(--space-3) var(--space-4) 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease;
+}
+
+.tab:hover {
+  border-bottom-color: var(--rule-on-paper);
+}
+
+.tab[aria-selected='true'] {
+  border-bottom-color: var(--ink);
+}
+
+.side {
+  color: var(--olive);
+  font-size: var(--step--1);
+}
+
+.modeName {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 28;
+  font-size: var(--step-1);
+  line-height: 1.15;
+  color: var(--muted-on-paper);
+}
+
+.tab[aria-selected='true'] .modeName {
+  color: var(--ink);
+}
+
+.panel {
+  padding-top: var(--space-6);
+}
+
+.panelHead {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.playlistName {
+  font-size: var(--step-3);
+  font-variation-settings: 'opsz' 60;
+}
+
+.summary {
+  color: var(--muted-on-paper);
+}
+
+.tracks {
+  margin-top: var(--space-6);
+  list-style: none;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-2) var(--space-5);
+  align-items: baseline;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--rule-on-paper);
+}
+
+.trackNumber {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 24;
+  font-size: var(--step-1);
+  color: var(--olive);
+  font-variant-numeric: oldstyle-nums;
+}
+
+.trackTitle {
+  font-weight: 560;
+}
+
+.trackArtist {
+  color: var(--muted-on-paper);
+  font-size: 0.95rem;
+}
+
+.trackReason {
+  color: var(--muted-on-paper);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.note {
+  max-width: var(--measure);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule-on-paper);
+  color: var(--muted-on-paper);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 52rem) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .book {
+    position: static;
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: var(--space-5);
+    align-items: end;
+  }
+
+  .atmosphere {
+    margin-top: 0;
+  }
+
+  .track {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .trackReason {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 30rem) {
+  .modeName {
+    font-size: 1.05rem;
+  }
+}

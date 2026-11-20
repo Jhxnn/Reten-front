@@ -1,0 +1,58 @@
+.section {
+  padding-block: clamp(var(--space-8), 10vw, var(--space-9));
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-7) clamp(var(--space-6), 5vw, var(--space-8));
+  margin-top: clamp(var(--space-7), 7vw, var(--space-8));
+  list-style: none;
+}
+
+.chapter {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96;
+  font-size: clamp(3.4rem, 6vw, 5rem);
+  font-weight: 420;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  color: var(--olive);
+}
+
+.title {
+  margin-top: var(--space-3);
+  font-size: var(--step-2);
+  font-variation-settings: 'opsz' 36;
+}
+
+.text {
+  max-width: 34ch;
+  color: var(--muted-on-paper);
+}
+
+@media (max-width: 52rem) {
+  .chapters {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter {
+    grid-template-columns: 4.5rem 1fr;
+    column-gap: var(--space-5);
+  }
+
+  .numeral {
+    grid-row: span 2;
+    font-size: 3.4rem;
+  }
+
+  .title {
+    margin-top: 0.2rem;
+  }
+}

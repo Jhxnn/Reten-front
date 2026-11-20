@@ -1,0 +1,67 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-hairline);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  font-weight: 560;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Sólido */
+.solid.dark {
+  background: var(--paper);
+  color: var(--ink);
+}
+.solid.dark:hover {
+  background: var(--vellum);
+}
+
+.solid.paper {
+  background: var(--ink);
+  color: var(--paper);
+}
+.solid.paper:hover {
+  background: var(--umber);
+}
+
+/* Discreto: só um fio que lembra o corte de uma página */
+.quiet {
+  background: transparent;
+  padding-inline: 0.2rem;
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
+
+.quiet.dark {
+  color: var(--paper);
+  border-color: var(--rule-on-dark);
+}
+.quiet.dark:hover {
+  border-color: var(--gilt);
+}
+
+.quiet.paper {
+  color: var(--ink);
+  border-color: var(--rule-on-paper);
+}
+.quiet.paper:hover {
+  border-color: var(--olive);
+}
