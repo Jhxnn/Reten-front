@@ -36,3 +36,25 @@
   font-variation-settings: 'opsz' 36;
   font-weight: 360;
 }
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.more {
+  color: var(--forest);
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-underline-offset: 0.2em;
+}
+
+.discs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+}

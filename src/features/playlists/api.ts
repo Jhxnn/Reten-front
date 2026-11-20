@@ -97,6 +97,7 @@ export function useGeneratePlaylist() {
     onSuccess: (playlist) => {
       queryClient.setQueryData(detailKey(playlist.id), playlist)
       queryClient.invalidateQueries({ queryKey: usageKey })
+      queryClient.invalidateQueries({ queryKey: ['library'] })
     },
   })
 }

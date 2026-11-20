@@ -8,6 +8,7 @@ import { SignInPage } from '../pages/auth/SignInPage'
 import { SignUpPage } from '../pages/auth/SignUpPage'
 import { BookPage } from '../pages/books/BookPage'
 import { BookSearchPage } from '../pages/books/BookSearchPage'
+import { LibraryPage } from '../pages/library/LibraryPage'
 import { PlaylistPage } from '../pages/playlists/PlaylistPage'
 import { LandingPage } from '../pages/landing/LandingPage'
 import { UpcomingPage } from '../pages/upcoming/UpcomingPage'
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
       { path: '/livros', element: <BookSearchPage /> },
       { path: '/livros/:id', element: <BookPage /> },
       { path: '/playlists/:id', element: <PlaylistPage /> },
+      { path: '/biblioteca', element: <LibraryPage /> },
     ],
   },
 

@@ -1,5 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
 import { Link, useParams, useSearchParams } from 'react-router'
+import { usePlaylistSummaries } from '../../features/library/api'
+import { PlaylistDisc } from '../../features/library/PlaylistDisc'
 import { GenerateSection } from '../../features/playlists/GenerateSection'
 import { listeningModes } from '../../features/playlists/modes'
 import { BookCover } from '../../components/book/BookCover'
@@ -17,6 +19,7 @@ export function BookPage() {
   // ?modo=VOCAL pré-seleciona o modo (usado em "tentar de novo" e "outra versão").
   const [params] = useSearchParams()
   const modeParam = listeningModes.find((m) => m.id === params.get('modo'))?.id
+  const existing = usePlaylistSummaries({ bookId: id })
 
   if (book.isPending) return <PageLoading />
 
@@ -50,6 +53,21 @@ export function BookPage() {
           descriptionNote={data.catalogId.startsWith('openlibrary:') && data.description ? 'Sinopse do Open Library, muitas vezes em inglês.' : undefined}
         />
       </article>
+
+      {existing.data && existing.data.length > 0 && (
+        <section className={styles.existing} aria-labelledby="trilhas-do-livro">
+          <h2 id="trilhas-do-livro" className={styles.existingTitle}>
+            Trilhas que você já criou para este livro
+          </h2>
+          <ul className={styles.discs}>
+            {existing.data.map((playlist) => (
+              <li key={playlist.id}>
+                <PlaylistDisc playlist={playlist} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <GenerateSection bookId={data.id} initialMode={modeParam} />
     </div>

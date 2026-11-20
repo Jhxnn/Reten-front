@@ -22,6 +22,9 @@ export function AppLayout() {
             <NavLink to="/livros" className={styles.navLink}>
               Livros
             </NavLink>
+            <NavLink to="/biblioteca" className={styles.navLink}>
+              Biblioteca
+            </NavLink>
           </nav>
         </div>
         <div className={styles.account}>
