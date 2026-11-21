@@ -8,6 +8,52 @@
   font-weight: 600;
 }
 
+.control {
+  position: relative;
+}
+
+/* Espaço para o botão de mostrar a senha */
+.withToggle {
+  padding-right: 3.25rem;
+}
+
+/* Esconde o "olho" nativo do Edge para não aparecerem dois */
+.withToggle::-ms-reveal,
+.withToggle::-ms-clear {
+  display: none;
+}
+
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-hairline);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: color 140ms ease;
+}
+
+.toggle:hover {
+  color: var(--text);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.toggle[aria-pressed='true'] {
+  color: var(--forest);
+}
+
 .input {
   width: 100%;
   min-height: 3rem;

@@ -4,6 +4,8 @@ import { FormMessage } from '../../components/form/FormMessage'
 import { TextField } from '../../components/form/TextField'
 import { Button, ButtonLink } from '../../components/ui/Button'
 import { useResetPassword } from '../../features/auth/hooks'
+import { PasswordRequirements } from '../../features/auth/PasswordRequirements'
+import { meetsPasswordRules } from '../../features/auth/passwordRules'
 import { AuthLayout } from './AuthLayout'
 import { splitErrors } from './formErrors'
 import styles from './forms.module.css'
@@ -14,11 +16,14 @@ export function ResetPasswordPage() {
   const [password, setPassword] = useState('')
   const [confirmation, setConfirmation] = useState('')
   const [mismatch, setMismatch] = useState(false)
+  const [attempted, setAttempted] = useState(false)
   const reset = useResetPassword()
   const { fields, general } = splitErrors(reset.error)
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
+    setAttempted(true)
+    if (!meetsPasswordRules(password)) return
     if (password !== confirmation) {
       setMismatch(true)
       return
@@ -66,12 +71,11 @@ export function ResetPasswordPage() {
           type="password"
           autoComplete="new-password"
           required
-          minLength={8}
           maxLength={72}
-          hint="Pelo menos 8 caracteres."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           error={fields.password}
+          below={<PasswordRequirements value={password} showMissing={attempted} />}
         />
         <TextField
           label="Repita a nova senha"

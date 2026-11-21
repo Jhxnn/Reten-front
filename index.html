@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fafaf7" />
     <script>
-      // Aplica o tema antes da primeira pintura (sem piscar): a escolha salva ou, sem ela, a do sistema.
+      // Aplica o tema antes da primeira pintura (sem piscar). O padrão é sempre o claro;
+      // o escuro só vale quando o leitor escolheu no menu.
       try {
-        var saved = localStorage.getItem('reten-theme')
-        var dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+        var dark = localStorage.getItem('reten-theme') === 'dark'
         document.documentElement.dataset.theme = dark ? 'dark' : 'light'
         if (dark) document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0e1b17')
       } catch (e) {
