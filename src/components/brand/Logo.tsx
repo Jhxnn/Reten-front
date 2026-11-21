@@ -17,15 +17,16 @@ export function Logo({ tone = 'light', compact = false }: LogoProps) {
   )
 }
 
-/** Marca do Reten: um livro aberto de onde sobe uma nota musical simples. */
+/** Marca do Reten: um livro aberto, com duas camadas de páginas, de onde sobe uma colcheia. */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg className={`${styles.mark} ${className ?? ''}`} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M15.2 27.5C11.6 24.4 6.9 23.4 1.5 24.2L4.6 14.6C8.9 13.9 12.9 15.6 15.2 19Z" fill="currentColor" />
-      <path d="M16.8 27.5C20.4 24.4 25.1 23.4 30.5 24.2L27.4 14.6C23.1 13.9 19.1 15.6 16.8 19Z" fill="currentColor" />
-      <circle cx="13.6" cy="13.4" r="2.6" fill="currentColor" />
-      <rect x="15.1" y="3.2" width="1.5" height="10.4" rx="0.75" fill="currentColor" />
-      <path d="M16.6 3.9L20.6 7.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg className={`${styles.mark} ${className ?? ''}`} viewBox="455 300 626 340" fill="currentColor" aria-hidden="true">
+      <path d="M465 568L515 508C600 500 700 530 766 608L768 630C700 560 590 535 465 568Z" />
+      <path d="M1071 568L1021 508C936 500 836 530 770 608L768 630C836 560 946 535 1071 568Z" />
+      <path d="M530 488L570 428C620 425 676 438 692 455C702 468 698 490 702 510C708 535 738 562 762 598C720 530 630 480 530 488Z" />
+      <path d="M1006 488L968 428C930 428 908 435 898 452C886 472 864 487 844 503C810 530 784 566 772 598C820 530 910 480 1006 488Z" />
+      <ellipse cx="754" cy="501" rx="41" ry="33" transform="rotate(-28 754 501)" />
+      <path d="M780 504V322C780 316 781 312 783 312C791 344 850 360 880 392C904 420 888 460 848 488C866 456 870 425 846 405C826 390 806 382 795 376V504Z" />
     </svg>
   )
 }

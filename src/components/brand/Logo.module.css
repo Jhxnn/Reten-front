@@ -15,8 +15,10 @@
 
 .mark {
   flex: none;
-  width: 1.75rem;
-  height: 1.75rem;
+  /* A marca é larga (proporção ~1,84:1): a altura acompanha o nome */
+  width: auto;
+  height: 1.45rem;
+  max-width: none;
 }
 
 .wordmark {
