@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router'
-import { RedirectIfAuthenticated, RequireAuth } from '../features/auth/guards'
+import { RedirectIfAuthenticated, RequireAuth, RequireUnverified } from '../features/auth/guards'
 import { AppLayout } from '../pages/app/AppLayout'
 import { HomePage } from '../pages/app/HomePage'
+import { ConfirmEmailPage } from '../pages/auth/ConfirmEmailPage'
 import { ForgotPasswordPage } from '../pages/auth/ForgotPasswordPage'
 import { ResetPasswordPage } from '../pages/auth/ResetPasswordPage'
 import { SignInPage } from '../pages/auth/SignInPage'
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
   // Conta
   { path: '/entrar', element: <RedirectIfAuthenticated><SignInPage /></RedirectIfAuthenticated> },
   { path: '/cadastro', element: <RedirectIfAuthenticated><SignUpPage /></RedirectIfAuthenticated> },
+  { path: '/confirmar-email', element: <RequireUnverified><ConfirmEmailPage /></RequireUnverified> },
   { path: '/esqueci-a-senha', element: <ForgotPasswordPage /> },
   { path: '/redefinir-senha', element: <ResetPasswordPage /> },
 

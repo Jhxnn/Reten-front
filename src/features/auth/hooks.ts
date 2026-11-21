@@ -53,3 +53,24 @@ export function useResetPassword() {
     mutationFn: ({ token, password }: { token: string; password: string }) => authApi.resetPassword(token, password),
   })
 }
+
+/** Confirma o e-mail; o usuário atualizado libera o app pelos guards. */
+export function useVerifyEmail() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (code: string) => authApi.verifyEmail(code),
+    onSuccess: (user) => queryClient.setQueryData(currentUserKey, user),
+  })
+}
+
+export function useResendCode() {
+  return useMutation({ mutationFn: authApi.resendCode })
+}
+
+export function useChangeEmail() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (email: string) => authApi.changeEmail(email),
+    onSuccess: (user) => queryClient.setQueryData(currentUserKey, user),
+  })
+}

@@ -4,7 +4,10 @@ import { PageLoading } from '../../components/ui/PageLoading'
 import { useCurrentUser } from './hooks'
 import { safeReturnPath } from './returnPath'
 
-/** Rotas que exigem sessão. Sem sessão, vai para o login e volta depois. */
+/**
+ * Rotas que exigem sessão. Sem sessão, vai para o login e volta depois.
+ * Com o e-mail ainda não confirmado, vai para a confirmação e volta depois.
+ */
 export function RequireAuth({ children }: { children: ReactNode }) {
   const { data: user, isPending } = useCurrentUser()
   const location = useLocation()
@@ -14,6 +17,20 @@ export function RequireAuth({ children }: { children: ReactNode }) {
     const back = encodeURIComponent(location.pathname + location.search)
     return <Navigate to={`/entrar?voltar=${back}`} replace />
   }
+  if (!user.emailVerified) {
+    const back = encodeURIComponent(location.pathname + location.search)
+    return <Navigate to={`/confirmar-email?voltar=${back}`} replace />
+  }
+  return children
+}
+
+/** Página de confirmação: só para quem tem sessão e ainda não confirmou o e-mail. */
+export function RequireUnverified({ children }: { children: ReactNode }) {
+  const { data: user, isPending } = useCurrentUser()
+  const [params] = useSearchParams()
+  if (isPending) return <PageLoading />
+  if (!user) return <Navigate to="/entrar" replace />
+  if (user.emailVerified) return <Navigate to={safeReturnPath(params.get('voltar'))} replace />
   return children
 }
 
