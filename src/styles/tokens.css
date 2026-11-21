@@ -1,5 +1,5 @@
 /*
- * Tokens de design do Reten — direção "verde profundo".
+ * Tokens de design do Resten — direção "verde profundo".
  * Branco limpo para a leitura, verde quase preto para a noite, verde-floresta como voz da marca
  * e menta como respiro.
  */
@@ -39,6 +39,7 @@
   /* Tipografia */
   --font-display: 'Fraunces Variable', Georgia, serif;
   --font-text: 'Manrope Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-brand: 'Cormorant Garamond', Garamond, Georgia, serif; /* só no nome da marca */
 
   /* Escala modular (razão 1.333 — quarta justa), base 17px */
   --step--1: 0.8125rem;  /* 13 */

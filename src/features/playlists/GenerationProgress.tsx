@@ -14,7 +14,7 @@ const STAGE_MS = 7000
 const BAR_COUNT = 28
 
 /**
- * Espera da geração como parte do universo do Reten: o livro à esquerda e, ao lado,
+ * Espera da geração como parte do universo do Resten: o livro à esquerda e, ao lado,
  * uma estante-equalizador que pulsa enquanto a IA trabalha.
  * As etapas avançam com o tempo e param na última até o servidor responder.
  */

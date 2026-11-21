@@ -7,5 +7,5 @@ export function splitErrors(error: unknown): { fields: FieldErrors; general?: st
     if (error.code === 'validation_failed') return { fields: error.fields }
     return { fields: {}, general: error.message }
   }
-  return { fields: {}, general: 'Não foi possível falar com o Reten. Verifique sua conexão e tente novamente.' }
+  return { fields: {}, general: 'Não foi possível falar com o Resten. Verifique sua conexão e tente novamente.' }
 }

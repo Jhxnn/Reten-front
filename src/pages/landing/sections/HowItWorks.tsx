@@ -5,7 +5,7 @@ const chapters = [
   {
     numeral: 'I',
     title: 'Escolha o livro',
-    text: 'Pesquise por título, autor ou ISBN. O Reten lê a sinopse e os dados da obra, nunca o texto do livro.',
+    text: 'Pesquise por título, autor ou ISBN. O Resten lê a sinopse e os dados da obra, nunca o texto do livro.',
   },
   {
     numeral: 'II',

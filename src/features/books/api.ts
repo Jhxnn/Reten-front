@@ -18,7 +18,7 @@ export type CatalogBook = {
   pageCount: number | null
 }
 
-/** Livro já guardado no Reten. */
+/** Livro já guardado no Resten. */
 export type Book = CatalogBook & {
   id: string
   lastSelectedAt: string | null

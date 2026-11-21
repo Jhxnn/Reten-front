@@ -12,7 +12,7 @@ export function AtmosphereIndex() {
             Antes da música, o clima.
           </h2>
           <p className={styles.lead}>
-            O Reten começa pela atmosfera de cada obra: a paisagem, a época, a intensidade das emoções. Só depois
+            O Resten começa pela atmosfera de cada obra: a paisagem, a época, a intensidade das emoções. Só depois
             procura as faixas.
           </p>
         </div>

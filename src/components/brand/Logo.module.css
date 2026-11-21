@@ -22,11 +22,10 @@
 }
 
 .wordmark {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 36;
-  font-size: 1.5rem;
-  font-weight: 420;
-  letter-spacing: -0.01em;
+  font-family: var(--font-brand);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1;
 }
 

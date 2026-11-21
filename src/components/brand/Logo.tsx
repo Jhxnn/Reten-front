@@ -10,14 +10,14 @@ type LogoProps = {
 
 export function Logo({ tone = 'light', compact = false }: LogoProps) {
   return (
-    <Link to="/" className={`${styles.logo} ${styles[tone]} ${compact ? styles.compact : ''}`} aria-label="Reten, página inicial">
+    <Link to="/" className={`${styles.logo} ${styles[tone]} ${compact ? styles.compact : ''}`} aria-label="Resten, página inicial">
       <LogoMark />
-      <span className={styles.wordmark}>Reten</span>
+      <span className={styles.wordmark}>Resten</span>
     </Link>
   )
 }
 
-/** Marca do Reten: um livro aberto, com duas camadas de páginas, de onde sobe uma colcheia. */
+/** Marca do Resten: um livro aberto, com duas camadas de páginas, de onde sobe uma colcheia. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg className={`${styles.mark} ${className ?? ''}`} viewBox="455 300 626 340" fill="currentColor" aria-hidden="true">

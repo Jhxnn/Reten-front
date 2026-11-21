@@ -20,7 +20,7 @@ export function UpcomingPage({ title, notFound = false }: UpcomingPageProps) {
         <p className={styles.text}>
           {notFound
             ? 'Não encontramos esta página. Verifique o endereço ou volte para o início.'
-            : 'Esta parte do Reten ainda está em construção e chega na próxima etapa do desenvolvimento.'}
+            : 'Esta parte do Resten ainda está em construção e chega na próxima etapa do desenvolvimento.'}
         </p>
         <ButtonLink to="/" surface="light">
           Voltar para o início

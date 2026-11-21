@@ -28,7 +28,7 @@ export function BookPage() {
       <div className={styles.page}>
         <FormMessage tone="error">
           {book.error instanceof ApiError && book.error.status === 404
-            ? 'Este livro não está no Reten. Pesquise e escolha de novo.'
+            ? 'Este livro não está no Resten. Pesquise e escolha de novo.'
             : 'Não foi possível carregar o livro.'}
         </FormMessage>
         <Link to="/livros" className={styles.back}>

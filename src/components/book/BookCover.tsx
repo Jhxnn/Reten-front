@@ -17,7 +17,7 @@ function toneFor(title: string): CoverTone {
   return tones[Math.abs(hash) % tones.length]
 }
 
-/** Capa real quando existe; senão (ou se a imagem falhar), a capa tipográfica do Reten. */
+/** Capa real quando existe; senão (ou se a imagem falhar), a capa tipográfica do Resten. */
 export function BookCover({ title, authors, coverUrl, className }: BookCoverProps) {
   const [failed, setFailed] = useState(false)
   const author = authors[0] ?? 'Autor desconhecido'

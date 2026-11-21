@@ -24,11 +24,11 @@ export function SiteFooter() {
         <div className={styles.colophon}>
           <p className={styles.colophonTitle}>Colofão</p>
           <p>Composto em Fraunces e Manrope.</p>
-          <p>O Reten não é afiliado ao Spotify. Spotify é uma marca registrada da Spotify AB.</p>
+          <p>O Resten não é afiliado ao Spotify. Spotify é uma marca registrada da Spotify AB.</p>
         </div>
       </div>
       <div className={`${layout.container} ${styles.base}`}>
-        <p>© {CURRENT_YEAR} Reten</p>
+        <p>© {CURRENT_YEAR} Resten</p>
       </div>
     </footer>
   )

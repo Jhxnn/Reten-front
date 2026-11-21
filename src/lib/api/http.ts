@@ -1,5 +1,5 @@
 /**
- * Cliente HTTP da API do Reten.
+ * Cliente HTTP da API do Resten.
  * - Sempre mesma origem (/api), com o cookie de sessão HttpOnly enviado pelo navegador.
  * - CSRF no padrão SPA do Spring Security: lê o cookie XSRF-TOKEN e envia no cabeçalho X-XSRF-TOKEN.
  * - Erros da API (RFC 9457) viram ApiError com um `code` estável.

@@ -13,6 +13,19 @@
   color: var(--text-on-dark);
 }
 
+/*
+ * No desktop o painel tem a altura da tela e fica parado enquanto o formulário cresce
+ * (mensagens de erro, lista de requisitos): a frase não "desce" junto.
+ */
+@media (min-width: 52.01rem) {
+  .panel {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100dvh;
+  }
+}
+
 .statement {
   max-width: 13ch;
   margin-top: auto;

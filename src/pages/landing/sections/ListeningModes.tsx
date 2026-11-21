@@ -94,7 +94,7 @@ export function ListeningModes() {
               </ol>
 
               <p className={styles.note}>
-                Exemplo editorial, montado à mão pela equipe do Reten. No app, a inteligência artificial sugere as
+                Exemplo editorial, montado à mão pela equipe do Resten. No app, a inteligência artificial sugere as
                 músicas e cada faixa é confirmada no catálogo do Spotify antes de entrar na sua playlist.
               </p>
             </div>

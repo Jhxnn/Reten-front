@@ -7,7 +7,7 @@ import { ApiError } from '../../lib/api/http'
 import { useDeletePlaylist } from './api'
 import styles from './DeletePlaylist.module.css'
 
-/** Apaga a playlist do Reten com confirmação. A cópia já salva no Spotify continua na conta. */
+/** Apaga a playlist do Resten com confirmação. A cópia já salva no Spotify continua na conta. */
 export function DeletePlaylist({ playlistId, savedOnSpotify }: { playlistId: string; savedOnSpotify: boolean }) {
   const [confirming, setConfirming] = useState(false)
   const remove = useDeletePlaylist()
@@ -24,7 +24,7 @@ export function DeletePlaylist({ playlistId, savedOnSpotify }: { playlistId: str
   return (
     <div className={styles.confirm} role="group" aria-labelledby="apagar-titulo">
       <p id="apagar-titulo" className={styles.question}>
-        Apagar esta playlist do Reten?
+        Apagar esta playlist do Resten?
       </p>
       <p className={styles.detail}>
         {savedOnSpotify

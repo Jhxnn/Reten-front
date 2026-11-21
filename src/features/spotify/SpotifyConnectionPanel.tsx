@@ -37,7 +37,7 @@ export function SpotifyConnectionPanel() {
       {connection.data?.configured && !connection.data.connected && (
         <>
           <p className={styles.text}>
-            Conecte sua conta para salvar as playlists do Reten direto na sua biblioteca. Você pode gerar e ver
+            Conecte sua conta para salvar as playlists do Resten direto na sua biblioteca. Você pode gerar e ver
             playlists sem conectar.
           </p>
           <p className={styles.note}>

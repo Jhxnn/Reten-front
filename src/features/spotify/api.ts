@@ -45,7 +45,7 @@ export const spotifyOutcomeMessages: Record<string, { tone: 'success' | 'error';
   },
   nao_autorizado: {
     tone: 'error',
-    text: 'Sua conta Spotify ainda não está liberada. Durante o beta, a Spotify só permite contas autorizadas manualmente pelo Reten.',
+    text: 'Sua conta Spotify ainda não está liberada. Durante o beta, a Spotify só permite contas autorizadas manualmente pelo Resten.',
   },
   indisponivel: { tone: 'error', text: 'O Spotify não respondeu agora. Tente conectar novamente em instantes.' },
   sessao_expirada: { tone: 'error', text: 'Sua sessão expirou durante a conexão. Entre de novo e tente outra vez.' },

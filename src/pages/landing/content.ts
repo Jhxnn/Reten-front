@@ -1,6 +1,6 @@
 /*
  * Conteúdo editorial da landing page.
- * Os exemplos abaixo foram escolhidos à mão pela equipe do Reten para ilustrar o conceito —
+ * Os exemplos abaixo foram escolhidos à mão pela equipe do Resten para ilustrar o conceito —
  * não são resultado de uma geração por IA e são apresentados na página como exemplo editorial.
  * As faixas citadas existem; no produto, cada faixa é verificada na Spotify Web API.
  */
@@ -77,7 +77,7 @@ export const listeningModes: ListeningMode[] = [
   },
 ]
 
-/** O sumário de climas: o que o Reten procura num livro antes de escolher qualquer música. */
+/** O sumário de climas: o que o Resten procura num livro antes de escolher qualquer música. */
 export const atmosphereIndex = [
   { title: 'Duna', author: 'Frank Herbert', mood: 'deserto, profecia, vastidão' },
   { title: 'Cem Anos de Solidão', author: 'Gabriel García Márquez', mood: 'memória, calor, destino circular' },
