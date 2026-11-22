@@ -1,32 +1,26 @@
 import { Link } from 'react-router'
+import { MARK_PATH, MARK_VIEWBOX } from './markPath'
 import styles from './Logo.module.css'
 
 type LogoProps = {
   /** Cor da marca: "light" sobre fundos escuros, "dark" segue a cor do texto (acompanha o tema). */
   tone?: 'light' | 'dark'
-  /** Em telas estreitas mostra só o ícone (o nome continua no aria-label). */
-  compact?: boolean
 }
 
-export function Logo({ tone = 'light', compact = false }: LogoProps) {
+/** A marca leva à página inicial. O nome do produto fica no aria-label. */
+export function Logo({ tone = 'light' }: LogoProps) {
   return (
-    <Link to="/" className={`${styles.logo} ${styles[tone]} ${compact ? styles.compact : ''}`} aria-label="Resten, página inicial">
+    <Link to="/" className={`${styles.logo} ${styles[tone]}`} aria-label="Resten, página inicial">
       <LogoMark />
-      <span className={styles.wordmark}>Resten</span>
     </Link>
   )
 }
 
-/** Marca do Resten: um livro aberto, com duas camadas de páginas, de onde sobe uma colcheia. */
+/** Marca do Resten: um livro aberto cujas páginas são barras de som. */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg className={`${styles.mark} ${className ?? ''}`} viewBox="455 300 626 340" fill="currentColor" aria-hidden="true">
-      <path d="M465 568L515 508C600 500 700 530 766 608L768 630C700 560 590 535 465 568Z" />
-      <path d="M1071 568L1021 508C936 500 836 530 770 608L768 630C836 560 946 535 1071 568Z" />
-      <path d="M530 488L570 428C620 425 676 438 692 455C702 468 698 490 702 510C708 535 738 562 762 598C720 530 630 480 530 488Z" />
-      <path d="M1006 488L968 428C930 428 908 435 898 452C886 472 864 487 844 503C810 530 784 566 772 598C820 530 910 480 1006 488Z" />
-      <ellipse cx="754" cy="501" rx="41" ry="33" transform="rotate(-28 754 501)" />
-      <path d="M780 504V322C780 316 781 312 783 312C791 344 850 360 880 392C904 420 888 460 848 488C866 456 870 425 846 405C826 390 806 382 795 376V504Z" />
+    <svg className={`${styles.mark} ${className ?? ''}`} viewBox={MARK_VIEWBOX} fill="currentColor" aria-hidden="true">
+      <path d={MARK_PATH} fillRule="evenodd" />
     </svg>
   )
 }

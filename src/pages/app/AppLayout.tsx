@@ -12,7 +12,7 @@ export function AppLayout() {
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <Logo tone="dark" compact />
+          <Logo tone="dark" />
           <nav aria-label="Área do leitor" className={styles.nav}>
             <NavLink to="/inicio" className={styles.navLink}>
               Início

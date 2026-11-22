@@ -39,7 +39,6 @@
   /* Tipografia */
   --font-display: 'Fraunces Variable', Georgia, serif;
   --font-text: 'Manrope Variable', 'Segoe UI', system-ui, sans-serif;
-  --font-brand: 'Cormorant Garamond', Garamond, Georgia, serif; /* só no nome da marca */
 
   /* Escala modular (razão 1.333 — quarta justa), base 17px */
   --step--1: 0.8125rem;  /* 13 */

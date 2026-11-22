@@ -1,36 +1,21 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   text-decoration: none;
 }
 
 .light {
-  color: var(--surface-fixed);
+  color: var(--brand-paper);
 }
 
 .dark {
   color: var(--text);
 }
 
+/* A marca é larga (proporção ~3,7:1); a altura define o tamanho */
 .mark {
   flex: none;
-  /* A marca é larga (proporção ~1,84:1): a altura acompanha o nome */
   width: auto;
-  height: 1.45rem;
+  height: 1.9rem;
   max-width: none;
-}
-
-.wordmark {
-  font-family: var(--font-brand);
-  font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1;
-}
-
-@media (max-width: 30rem) {
-  .compact .wordmark {
-    display: none;
-  }
 }
