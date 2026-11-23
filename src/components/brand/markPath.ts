@@ -1,7 +1,7 @@
 /**
  * Contorno da marca do Resten (livro aberto com ondas sonoras saindo das páginas),
  * vetorizado a partir da arte original. Coordenadas no viewBox 0 0 2412 1195.
- * A arte é de traço fino: em tamanhos pequenos o Logo engrossa o traço com um contorno da mesma cor.
+ * Desenhada sem contorno extra, fiel ao traço fino da arte.
  */
 export const MARK_VIEWBOX = "0 0 2412 1195"
 

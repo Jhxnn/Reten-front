@@ -20,12 +20,6 @@
   max-width: none;
 }
 
-/* Traço da arte original é fino: um contorno da mesma cor o deixa legível no cabeçalho. */
-.mark path {
-  stroke: currentColor;
-  stroke-width: 20;
-  stroke-linejoin: round;
-}
 
 /* No celular a marca encolhe para caber ao lado da navegação e do menu da conta. */
 @media (max-width: 30rem) {
