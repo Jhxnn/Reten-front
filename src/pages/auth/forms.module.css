@@ -3,9 +3,35 @@
   gap: var(--space-5);
 }
 
-.aside {
-  justify-self: start;
+
+/* Linha abaixo da senha no login: "Manter conectado" à esquerda, "Esqueci minha senha" à direita. */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  align-items: center;
+  justify-content: space-between;
   margin-top: calc(var(--space-3) * -1);
+}
+
+.check {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+  accent-color: var(--forest);
+  cursor: pointer;
+}
+
+.optionLink {
   color: var(--forest);
   font-size: 0.95rem;
   font-weight: 600;

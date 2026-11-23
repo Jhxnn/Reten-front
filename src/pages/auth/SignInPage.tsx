@@ -12,6 +12,7 @@ import styles from './forms.module.css'
 export function SignInPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [rememberMe, setRememberMe] = useState(false)
   const login = useLogin()
   const navigate = useNavigate()
   const [params] = useSearchParams()
@@ -19,7 +20,7 @@ export function SignInPage() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
-    login.mutate({ email, password }, { onSuccess: () => navigate(safeReturnPath(params.get('voltar')), { replace: true }) })
+    login.mutate({ email, password, rememberMe }, { onSuccess: () => navigate(safeReturnPath(params.get('voltar')), { replace: true }) })
   }
 
   return (
@@ -52,9 +53,15 @@ export function SignInPage() {
           onChange={(e) => setPassword(e.target.value)}
           error={fields.password}
         />
-        <Link to="/esqueci-a-senha" className={styles.aside}>
-          Esqueci minha senha
-        </Link>
+        <div className={styles.options}>
+          <label className={styles.check}>
+            <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
+            Manter conectado
+          </label>
+          <Link to="/esqueci-a-senha" className={styles.optionLink}>
+            Esqueci minha senha
+          </Link>
+        </div>
         <Button type="submit" disabled={login.isPending}>
           {login.isPending ? 'Entrando…' : 'Entrar'}
         </Button>

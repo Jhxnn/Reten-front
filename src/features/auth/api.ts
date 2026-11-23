@@ -11,7 +11,8 @@ export type CurrentUser = {
 }
 
 export type RegisterInput = { name: string; email: string; password: string }
-export type LoginInput = { email: string; password: string }
+/** rememberMe: "manter conectado" (a sessão sobrevive ao fechar o navegador, por 30 dias sem uso). */
+export type LoginInput = { email: string; password: string; rememberMe?: boolean }
 
 export const authApi = {
   /** Retorna null quando não há sessão, em vez de lançar erro. */
