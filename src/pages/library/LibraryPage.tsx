@@ -1,3 +1,4 @@
+import { Plus } from 'lucide-react'
 import { Link } from 'react-router'
 import { BookCover } from '../../components/book/BookCover'
 import { FormMessage } from '../../components/form/FormMessage'
@@ -50,27 +51,27 @@ export function LibraryPage() {
               </Link>
               <div className={styles.content}>
                 <div className={styles.bookHead}>
-                  <div>
-                    <h2 className={styles.bookTitle}>
-                      <Link to={`/livros/${entry.book.id}`}>{entry.book.title}</Link>
-                    </h2>
-                    <p className={styles.author}>{entry.book.authors.join(', ') || 'Autor desconhecido'}</p>
-                  </div>
-                  <Link to={`/livros/${entry.book.id}`} className={styles.newTrack}>
-                    {entry.playlists.length === 0 ? 'Criar a primeira trilha' : 'Gerar outra trilha'}
-                  </Link>
+                  <h2 className={styles.bookTitle}>
+                    <Link to={`/livros/${entry.book.id}`}>{entry.book.title}</Link>
+                  </h2>
+                  <p className={styles.author}>{entry.book.authors.join(', ') || 'Autor desconhecido'}</p>
                 </div>
-                {entry.playlists.length > 0 ? (
-                  <ul className={styles.discs}>
-                    {entry.playlists.map((playlist) => (
-                      <li key={playlist.id}>
-                        <PlaylistDisc playlist={playlist} />
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className={styles.noTracks}>Nenhuma trilha ainda para este livro.</p>
-                )}
+                <ul className={styles.discs}>
+                  {entry.playlists.map((playlist) => (
+                    <li key={playlist.id}>
+                      <PlaylistDisc playlist={playlist} />
+                    </li>
+                  ))}
+                  {/* A ação fica junto dos discos, como mais um lugar na prateleira. */}
+                  <li>
+                    <Link to={`/livros/${entry.book.id}`} className={styles.newTrack}>
+                      <span className={styles.newTrackIcon} aria-hidden="true">
+                        <Plus size={18} strokeWidth={1.75} />
+                      </span>
+                      {entry.playlists.length === 0 ? 'Criar a primeira trilha' : 'Gerar outra trilha'}
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </li>
           ))}

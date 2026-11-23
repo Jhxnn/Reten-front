@@ -67,11 +67,8 @@
 }
 
 .bookHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-2) var(--space-5);
+  display: grid;
+  gap: var(--space-1);
 }
 
 .bookTitle {
@@ -95,11 +92,40 @@
   color: var(--text-muted);
 }
 
+/* "Gerar outra trilha": um lugar vazio na prateleira, com a mesma altura dos discos. */
 .newTrack {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  height: 100%;
+  min-height: 5.25rem;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+  border: 1px dashed color-mix(in srgb, var(--forest) 45%, var(--line));
+  border-radius: var(--radius-hairline);
   color: var(--forest);
   font-size: 0.95rem;
   font-weight: 650;
-  text-underline-offset: 0.2em;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.newTrack:hover,
+.newTrack:focus-visible {
+  border-style: solid;
+  border-color: var(--forest);
+  background: color-mix(in srgb, var(--forest) 6%, transparent);
+}
+
+.newTrackIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px dashed currentColor;
+  border-radius: 50%;
 }
 
 .discs {
@@ -109,10 +135,6 @@
   list-style: none;
 }
 
-.noTracks {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
 
 @media (max-width: 40rem) {
   .shelf {
@@ -128,12 +150,9 @@
 
   .bookHead {
     grid-column: 2;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
-  .discs,
-  .noTracks {
+  .discs {
     grid-column: 1 / -1;
     grid-template-columns: 1fr;
   }
