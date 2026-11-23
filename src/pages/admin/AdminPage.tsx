@@ -8,8 +8,11 @@ import {
   useAdminOverview,
   useAdminPlaylists,
   useAdminUsers,
+  useConfirmUserEmail,
   type AdminOverview,
+  type AdminUser,
 } from '../../features/admin/api'
+import { ApiError } from '../../lib/api/http'
 import { modeName } from '../../features/playlists/modes'
 import styles from './Admin.module.css'
 
@@ -36,7 +39,7 @@ export function AdminPage() {
     <div className={styles.page}>
       <header className={styles.header}>
         <h1 className={styles.title}>Administração</h1>
-        <p className={styles.lede}>Quem usou o Resten e as playlists criadas. Tudo aqui é só para leitura.</p>
+        <p className={styles.lede}>Quem usou o Resten e as playlists criadas. Daqui você também pode confirmar o e-mail de quem não recebeu o código.</p>
       </header>
 
       <Stats overview={overview.data} />
@@ -72,9 +75,7 @@ export function AdminPage() {
                   <td>{formatDateTime(user.lastSeenAt)}</td>
                   <td>{formatDate(user.createdAt)}</td>
                   <td>
-                    <span className={user.emailVerified ? styles.ok : styles.muted}>
-                      {user.emailVerified ? 'Confirmado' : 'Pendente'}
-                    </span>
+                    <EmailStatus user={user} />
                   </td>
                   <td>
                     <span className={user.spotifyConnected ? styles.ok : styles.muted}>
@@ -169,6 +170,31 @@ export function AdminPage() {
         )}
       </section>
     </div>
+  )
+}
+
+/** "Confirmado", ou "Pendente" com o botão que libera a conta sem o código. */
+function EmailStatus({ user }: { user: AdminUser }) {
+  const confirm = useConfirmUserEmail()
+  if (user.emailVerified) return <span className={styles.ok}>Confirmado</span>
+  return (
+    <span className={styles.pending}>
+      <span className={styles.muted}>Pendente</span>
+      <button
+        type="button"
+        className={styles.confirm}
+        disabled={confirm.isPending}
+        onClick={() => confirm.mutate(user.id)}
+        aria-label={`Confirmar o e-mail de ${user.name}`}
+      >
+        {confirm.isPending ? 'Confirmando…' : 'Confirmar'}
+      </button>
+      {confirm.isError && (
+        <span className={styles.rowError} role="alert">
+          {confirm.error instanceof ApiError ? confirm.error.message : 'Não deu certo. Tente de novo.'}
+        </span>
+      )}
+    </span>
   )
 }
 

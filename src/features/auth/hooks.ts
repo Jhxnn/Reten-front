@@ -3,11 +3,16 @@ import { authApi, type CurrentUser, type LoginInput, type RegisterInput } from '
 
 export const currentUserKey = ['auth', 'me'] as const
 
-export function useCurrentUser() {
+/**
+ * @param pollEveryMs recarrega a conta neste intervalo (ex.: na tela de confirmação, para perceber
+ *   quando um administrador confirma o e-mail sem o leitor digitar o código)
+ */
+export function useCurrentUser({ pollEveryMs }: { pollEveryMs?: number } = {}) {
   return useQuery({
     queryKey: currentUserKey,
     queryFn: authApi.me,
     staleTime: 5 * 60_000,
+    refetchInterval: pollEveryMs ?? false,
   })
 }
 

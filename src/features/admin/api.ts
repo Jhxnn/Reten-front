@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { api } from '../../lib/api/http'
 import type { ListeningMode, PlaylistStatus } from '../playlists/api'
 
@@ -67,6 +67,16 @@ export function useAdminOverview() {
 
 export function useAdminUsers() {
   return useQuery({ queryKey: ['admin', 'users'], queryFn: () => api<AdminUser[]>('/admin/users'), staleTime: 0 })
+}
+
+/** Confirma o e-mail de um leitor sem código; a lista e os totais recarregam em seguida. */
+export function useConfirmUserEmail() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (userId: string) =>
+      api<void>(`/admin/users/${encodeURIComponent(userId)}/email-verification`, { method: 'POST' }),
+    onSettled: () => queryClient.invalidateQueries({ queryKey: ['admin'] }),
+  })
 }
 
 export function useAdminPlaylists(userId: string | null) {

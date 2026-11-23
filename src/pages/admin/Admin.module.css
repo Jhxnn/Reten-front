@@ -334,3 +334,43 @@
   font-size: 0.9rem;
   font-style: italic;
 }
+
+/* E-mail pendente: o botão confirma sem o código */
+.pending {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  align-items: center;
+}
+
+.confirm {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  background: none;
+  color: var(--forest);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.confirm:hover:not(:disabled),
+.confirm:focus-visible {
+  background: var(--forest);
+  color: var(--brand-paper);
+}
+
+.confirm:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.rowError {
+  flex-basis: 100%;
+  color: var(--danger);
+  font-size: 0.8rem;
+}

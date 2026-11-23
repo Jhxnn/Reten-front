@@ -13,7 +13,8 @@ const RESEND_SECONDS = 60
 
 /** Pede o código de 6 dígitos enviado no cadastro. Até confirmar, é a única tela da área logada. */
 export function ConfirmEmailPage() {
-  const { data: user } = useCurrentUser()
+  // Confere a cada 10 s: se um administrador confirmar o e-mail, o guard libera o app sozinho.
+  const { data: user } = useCurrentUser({ pollEveryMs: 10_000 })
   const [code, setCode] = useState('')
   const [changing, setChanging] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
