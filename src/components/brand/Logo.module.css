@@ -12,17 +12,24 @@
   color: var(--text);
 }
 
-/* A marca é larga (proporção ~3,7:1); a altura define o tamanho */
+/* A marca tem proporção ~1,8:1; a altura define o tamanho */
 .mark {
   flex: none;
   width: auto;
-  height: 1.9rem;
+  height: 2.6rem;
   max-width: none;
+}
+
+/* Traço da arte original é fino: um contorno da mesma cor o deixa legível no cabeçalho. */
+.mark path {
+  stroke: currentColor;
+  stroke-width: 10;
+  stroke-linejoin: round;
 }
 
 /* No celular a marca encolhe para caber ao lado da navegação e do menu da conta. */
 @media (max-width: 30rem) {
   .mark {
-    height: 1.45rem;
+    height: 2.1rem;
   }
 }

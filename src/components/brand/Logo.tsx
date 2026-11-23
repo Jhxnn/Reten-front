@@ -16,7 +16,7 @@ export function Logo({ tone = 'light' }: LogoProps) {
   )
 }
 
-/** Marca do Resten: um livro aberto cujas páginas são barras de som. */
+/** Marca do Resten: um livro aberto com ondas sonoras saindo das páginas. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg className={`${styles.mark} ${className ?? ''}`} viewBox={MARK_VIEWBOX} fill="currentColor" aria-hidden="true">
