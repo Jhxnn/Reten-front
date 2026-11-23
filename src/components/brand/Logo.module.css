@@ -23,7 +23,7 @@
 /* Traço da arte original é fino: um contorno da mesma cor o deixa legível no cabeçalho. */
 .mark path {
   stroke: currentColor;
-  stroke-width: 10;
+  stroke-width: 20;
   stroke-linejoin: round;
 }
 
