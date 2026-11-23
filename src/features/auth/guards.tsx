@@ -24,6 +24,14 @@ export function RequireAuth({ children }: { children: ReactNode }) {
   return children
 }
 
+/** Área de administração: quem não é admin volta para o início (a API também recusa). */
+export function RequireAdmin({ children }: { children: ReactNode }) {
+  const { data: user, isPending } = useCurrentUser()
+  if (isPending) return <PageLoading />
+  if (!user?.admin) return <Navigate to="/inicio" replace />
+  return children
+}
+
 /** Página de confirmação: só para quem tem sessão e ainda não confirmou o e-mail. */
 export function RequireUnverified({ children }: { children: ReactNode }) {
   const { data: user, isPending } = useCurrentUser()

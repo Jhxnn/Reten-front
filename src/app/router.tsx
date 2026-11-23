@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router'
-import { RedirectIfAuthenticated, RequireAuth, RequireUnverified } from '../features/auth/guards'
+import { RedirectIfAuthenticated, RequireAdmin, RequireAuth, RequireUnverified } from '../features/auth/guards'
+import { AdminPage } from '../pages/admin/AdminPage'
+import { AdminPlaylistPage } from '../pages/admin/AdminPlaylistPage'
 import { AppLayout } from '../pages/app/AppLayout'
 import { HomePage } from '../pages/app/HomePage'
 import { ConfirmEmailPage } from '../pages/auth/ConfirmEmailPage'
@@ -37,6 +39,8 @@ export const router = createBrowserRouter([
       { path: '/livros/:id', element: <BookPage /> },
       { path: '/playlists/:id', element: <PlaylistPage /> },
       { path: '/biblioteca', element: <LibraryPage /> },
+      { path: '/admin', element: <RequireAdmin><AdminPage /></RequireAdmin> },
+      { path: '/admin/playlists/:id', element: <RequireAdmin><AdminPlaylistPage /></RequireAdmin> },
     ],
   },
 

@@ -25,7 +25,7 @@ export function AppLayout() {
             </NavLink>
           </nav>
         </div>
-        <div className={styles.account}>{user && <UserMenu name={user.name} />}</div>
+        <div className={styles.account}>{user && <UserMenu name={user.name} admin={user.admin} />}</div>
       </header>
       <main className={styles.main}>
         <Outlet />

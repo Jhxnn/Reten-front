@@ -62,3 +62,17 @@
     gap: var(--space-4);
   }
 }
+
+@media (max-width: 30rem) {
+  .header {
+    gap: var(--space-3);
+  }
+
+  .brand {
+    gap: var(--space-4);
+  }
+
+  .nav {
+    gap: var(--space-3);
+  }
+}

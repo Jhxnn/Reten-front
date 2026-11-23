@@ -1,11 +1,12 @@
-import { ChevronDown, LogOut, Moon } from 'lucide-react'
+import { ChevronDown, LogOut, Moon, ShieldCheck } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
+import { Link } from 'react-router'
 import { useLogout } from '../../features/auth/hooks'
 import { useTheme } from '../../features/theme/theme'
 import styles from './UserMenu.module.css'
 
-/** Nome do leitor que abre um menu com o modo escuro e a saída. */
-export function UserMenu({ name }: { name: string }) {
+/** Nome do leitor que abre um menu com o modo escuro, a administração (só admin) e a saída. */
+export function UserMenu({ name, admin = false }: { name: string; admin?: boolean }) {
   const [open, setOpen] = useState(false)
   const root = useRef<HTMLDivElement>(null)
   const trigger = useRef<HTMLButtonElement>(null)
@@ -54,6 +55,12 @@ export function UserMenu({ name }: { name: string }) {
 
       <div id={panelId} className={styles.panel} hidden={!open}>
         <p className={styles.who}>{name}</p>
+        {admin && (
+          <Link to="/admin" className={styles.item} onClick={() => setOpen(false)}>
+            <ShieldCheck size={17} aria-hidden="true" />
+            <span>Administração</span>
+          </Link>
+        )}
         <button type="button" role="switch" aria-checked={theme === 'dark'} className={styles.item} onClick={toggle}>
           <Moon size={17} aria-hidden="true" />
           <span>Modo escuro</span>

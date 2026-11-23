@@ -6,6 +6,8 @@ export type CurrentUser = {
   email: string
   /** Falso até o leitor digitar o código enviado por e-mail; até lá o app fica bloqueado. */
   emailVerified: boolean
+  /** Enxerga a área de administração. */
+  admin: boolean
 }
 
 export type RegisterInput = { name: string; email: string; password: string }
