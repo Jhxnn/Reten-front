@@ -41,7 +41,7 @@ export function SpotifyConnectionPanel() {
             playlists sem conectar.
           </p>
           <p className={styles.note}>
-            Durante o beta, a Spotify só libera contas autorizadas manualmente. Se a sua ainda não estiver, avisamos
+            Durante o beta, o Spotify só libera contas autorizadas manualmente. Se a sua ainda não estiver, avisamos
             ao conectar.
           </p>
           <Button onClick={startSpotifyAuthorization}>Conectar Spotify</Button>

@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { api } from '../../lib/api/http'
 
 export type SpotifyConnection = {
-  /** false quando o servidor não tem credenciais da Spotify configuradas. */
+  /** false quando o servidor não tem credenciais do Spotify configuradas. */
   configured: boolean
   connected: boolean
   displayName: string | null
@@ -26,7 +26,7 @@ export function useDisconnectSpotify() {
   })
 }
 
-/** O OAuth é uma navegação completa do navegador: o backend redireciona para a Spotify e de volta. */
+/** O OAuth é uma navegação completa do navegador: o backend redireciona para o Spotify e de volta. */
 export function startSpotifyAuthorization() {
   window.location.assign('/api/spotify/authorize')
 }
@@ -45,7 +45,7 @@ export const spotifyOutcomeMessages: Record<string, { tone: 'success' | 'error';
   },
   nao_autorizado: {
     tone: 'error',
-    text: 'Sua conta Spotify ainda não está liberada. Durante o beta, a Spotify só permite contas autorizadas manualmente pelo Resten.',
+    text: 'Sua conta Spotify ainda não está liberada. Durante o beta, o Spotify só permite contas autorizadas manualmente pelo Resten.',
   },
   indisponivel: { tone: 'error', text: 'O Spotify não respondeu agora. Tente conectar novamente em instantes.' },
   sessao_expirada: { tone: 'error', text: 'Sua sessão expirou durante a conexão. Entre de novo e tente outra vez.' },

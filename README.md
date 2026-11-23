@@ -9,7 +9,7 @@ A API fica no repositório [Reten-api](https://github.com/Jhxnn/Reten-api).
 
 ```bash
 npm install
-npm run dev        # http://127.0.0.1:5173 (use 127.0.0.1, não localhost: exigência do OAuth da Spotify)
+npm run dev        # http://127.0.0.1:5173 (use 127.0.0.1, não localhost: exigência do OAuth do Spotify)
 ```
 
 Em desenvolvimento, as chamadas para `/api` são encaminhadas para a API em `http://localhost:8090`

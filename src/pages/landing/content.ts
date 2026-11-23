@@ -2,7 +2,7 @@
  * Conteúdo editorial da landing page.
  * Os exemplos abaixo foram escolhidos à mão pela equipe do Resten para ilustrar o conceito —
  * não são resultado de uma geração por IA e são apresentados na página como exemplo editorial.
- * As faixas citadas existem; no produto, cada faixa é verificada na Spotify Web API.
+ * As faixas citadas existem; no produto, cada faixa é verificada na Web API do Spotify.
  */
 import coverNomeDoVento from '../../assets/covers/o-nome-do-vento.jpg'
 
